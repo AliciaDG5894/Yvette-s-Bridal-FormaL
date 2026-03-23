@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yvette's - Panel Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="admin__sidebar">
+        <div class="admin__sidebar__logo">
+            <a href="index.html"><img src="img/log1.png" alt="Yvette's"></a>
+        </div>
+        <div class="admin__nav__sep">Principal</div>
+        <div class="admin__nav__item active" onclick="showSection('dashboard')"><i class="fa fa-dashboard"></i> Dashboard</div>
+        <div class="admin__nav__sep">Gestión</div>
+        <div class="admin__nav__item" onclick="showSection('productos')"><i class="fa fa-tag"></i> Productos</div>
+        <div class="admin__nav__item" onclick="showSection('usuarios')"><i class="fa fa-users"></i> Usuarios</div>
+        <div class="admin__nav__item" onclick="showSection('mensajes')"><i class="fa fa-envelope"></i> Mensajes</div>
+        <div class="admin__nav__sep">Cuenta</div>
+        <div class="admin__nav__item" onclick="cerrarSesion()"><i class="fa fa-sign-out"></i> Cerrar Sesión</div>
+        <!-- <div style="padding:24px;margin-top:auto;">
+            <a href="index.html" style="color:rgba(255,255,255,.4);font-size:12px;text-decoration:none;">← Ver sitio</a>
+        </div> -->
+    </aside>
+
+    <!-- Main -->
+    <main class="admin__main">
+
+        <!-- Topbar -->
+        <div class="admin__topbar">
+            <h1 id="page__title">Dashboard</h1>
+            <span class="admin__badge"><i class="fa fa-lock" style="margin-right:5px;"></i>ADMIN</span>
+        </div>
+
+        <!-- Dashboard -->
+        <div class="panel__section active" id="sec__dashboard">
+            <div class="stat__grid">
+                <div class="stat__card"><div class="stat__card__icon"><i class="fa fa-users"></i></div><div class="stat__card__num" id="stat__usuarios">—</div><div class="stat__card__label">Usuarios</div></div>
+                <div class="stat__card"><div class="stat__card__icon"><i class="fa fa-envelope"></i></div><div class="stat__card__num" id="stat__mensajes">—</div><div class="stat__card__label">Mensajes</div></div>
+                <div class="stat__card"><div class="stat__card__icon"><i class="fa fa-shopping-cart"></i></div><div class="stat__card__num" id="stat__carritos">—</div><div class="stat__card__label">Items en carrito</div></div>
+                <div class="stat__card"><div class="stat__card__icon"><i class="fa fa-tag"></i></div><div class="stat__card__num" id="stat__productos">—</div><div class="stat__card__label">Productos</div></div>
+            </div>
+            <p style="color:#aaa;font-size:13px;">Bienvenido al panel de administración de Yvette's.</p>
+        </div>
+
+        <!-- Productos -->
+        <div class="panel__section" id="sec__productos">
+            <div class="section__header">
+                <h2>Productos</h2>
+                <button class="btn__primary" onclick="abrirModalProducto()"><i class="fa fa-plus"></i> Nuevo producto</button>
+            </div>
+            <div id="tabla__productos"><div class="loading__txt">Cargando...</div></div>
+        </div>
+
+        <!-- Usuarios -->
+        <div class="panel__section" id="sec__usuarios">
+            <div class="section__header"><h2>Usuarios registrados</h2></div>
+            <div id="tabla__usuarios"><div class="loading__txt">Cargando...</div></div>
+        </div>
+
+        <!-- Mensajes -->
+        <div class="panel__section" id="sec__mensajes">
+            <div class="section__header"><h2>Mensajes de contacto</h2></div>
+            <div id="tabla__mensajes"><div class="loading__txt">Cargando...</div></div>
+        </div>
+
+    </main>
+
+    <!-- Modal producto -->
+    <div class="modal__overlay" id="modal__producto">
+        <div class="modal__box">
+            <h3 id="modal__titulo">Nuevo Producto</h3>
+            <input type="hidden" id="prod__id">
+            <div class="modal__input"><label>Nombre</label><input type="text" id="prod__nombre" placeholder="Nombre del producto"></div>
+            <div class="modal__input"><label>Precio ($)</label><input type="number" id="prod__precio" placeholder="0.00" step="0.01"></div>
+            <div class="modal__input"><label>Categoría</label>
+                <select id="prod__categoria">
+                    <option value="Boda">Boda</option>
+                    <option value="Prom">Prom</option>
+                    <option value="Esmoquin">Esmoquin</option>
+                    <option value="Accesorios">Accesorios</option>
+                </select>
+            </div>
+            <div class="modal__input"><label>URL de imagen</label><input type="text" id="prod__imagen" placeholder="img/product/..."></div>
+            <div class="modal__input"><label>Descripción</label><textarea id="prod__desc" rows="3" placeholder="Descripción breve..."></textarea></div>
+            <div class="modal__actions">
+                <button class="btn__cancel" onclick="cerrarModal()">Cancelar</button>
+                <button class="btn__primary" onclick="guardarProducto()">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const SUPABASE_URL='https://odlebtlesvinsfaokiiz.supabase.co'
+        const SUPABASE_KEY='sb_publishable_SozvaH9FjvRZdCTSQBhGdg_YQnPX-LT'
+        const { createClient } = supabase
+        const sb = createClient(SUPABASE_URL, SUPABASE_KEY)
+
+        async function cerrarSesion(){ await sb.auth.signOut(); window.location.href='login.html' }
+
+        // Verificar que sea admin
+        async function verificarAdmin() {
+            const { data:{session} } = await sb.auth.getSession()
+            if (!session) { window.location.href='login.html'; return null }
+            const { data:u } = await sb.from('usuarios').select('nombre,rol').eq('id',session.user.id).single()
+            if (!u||u.rol!=='admin') { window.location.href='index.html'; return null }
+            return u
+        }
+
+        // Navegación
+        function showSection(id) {
+            document.querySelectorAll('.panel__section').forEach(s=>s.classList.remove('active'))
+            document.querySelectorAll('.admin__nav__item').forEach(n=>n.classList.remove('active'))
+            document.getElementById('sec__'+id).classList.add('active')
+            event.currentTarget.classList.add('active')
+            const titles={dashboard:'Dashboard',productos:'Productos',usuarios:'Usuarios',mensajes:'Mensajes de Contacto'}
+            document.getElementById('page__title').textContent=titles[id]
+            if(id==='productos') cargarProductos()
+            if(id==='usuarios')  cargarUsuarios()
+            if(id==='mensajes')  cargarMensajes()
+        }
+
+        // Stats dashboard
+        async function cargarStats() {
+            const [u,m,c,p] = await Promise.all([
+                sb.from('usuarios').select('id',{count:'exact',head:true}),
+                sb.from('contacto').select('id',{count:'exact',head:true}),
+                sb.from('carrito').select('id',{count:'exact',head:true}),
+                sb.from('productos').select('id',{count:'exact',head:true})
+            ])
+            document.getElementById('stat__usuarios').textContent  = u.count??0
+            document.getElementById('stat__mensajes').textContent  = m.count??0
+            document.getElementById('stat__carritos').textContent  = c.count??0
+            document.getElementById('stat__productos').textContent = p.count??0
+        }
+
+        // Productos
+        async function cargarProductos() {
+            const { data } = await sb.from('productos').select('*').order('created_at',{ascending:false})
+            const el = document.getElementById('tabla__productos')
+            if (!data||data.length===0) { el.innerHTML='<div class="loading__txt">No hay productos aún.</div>'; return }
+            el.innerHTML=`<table class="data__table">
+                <thead><tr><th>Imagen</th><th>Nombre</th><th>Precio</th><th>Categoría</th><th>Acciones</th></tr></thead>
+                <tbody>${data.map(p=>`<tr>
+                    <td>${p.imagen_url?`<img src="${p.imagen_url}" style="width:50px;height:65px;object-fit:cover;border-radius:4px;">`:'—'}</td>
+                    <td><strong>${p.nombre}</strong></td>
+                    <td>$ ${parseFloat(p.precio).toFixed(2)}</td>
+                    <td>${p.categoria||'—'}</td>
+                    <td>
+                        <button class="btn__primary" style="margin-right:6px;" onclick='editarProducto(${JSON.stringify(p)})'>Editar</button>
+                        <button class="btn__danger" onclick="eliminarProducto('${p.id}')">Eliminar</button>
+                    </td>
+                </tr>`).join('')}</tbody>
+            </table>`
+        }
+
+        function abrirModalProducto() {
+            document.getElementById('prod__id').value=''
+            document.getElementById('prod__nombre').value=''
+            document.getElementById('prod__precio').value=''
+            document.getElementById('prod__imagen').value=''
+            document.getElementById('prod__desc').value=''
+            document.getElementById('modal__titulo').textContent='Nuevo Producto'
+            document.getElementById('modal__producto').classList.add('open')
+        }
+        function editarProducto(p) {
+            document.getElementById('prod__id').value=p.id
+            document.getElementById('prod__nombre').value=p.nombre
+            document.getElementById('prod__precio').value=p.precio
+            document.getElementById('prod__imagen').value=p.imagen_url||''
+            document.getElementById('prod__desc').value=p.descripcion||''
+            document.getElementById('prod__categoria').value=p.categoria||'Vestidos de novia'
+            document.getElementById('modal__titulo').textContent='Editar Producto'
+            document.getElementById('modal__producto').classList.add('open')
+        }
+        function cerrarModal() { document.getElementById('modal__producto').classList.remove('open') }
+
+        async function guardarProducto() {
+            const id      = document.getElementById('prod__id').value
+            const nombre  = document.getElementById('prod__nombre').value.trim()
+            const precio  = parseFloat(document.getElementById('prod__precio').value)
+            const imagen  = document.getElementById('prod__imagen').value.trim()
+            const desc    = document.getElementById('prod__desc').value.trim()
+            const categ   = document.getElementById('prod__categoria').value
+            if (!nombre||!precio) { alert('Nombre y precio son requeridos.'); return }
+            if (id) {
+                await sb.from('productos').update({nombre,precio,imagen_url:imagen,descripcion:desc,categoria:categ}).eq('id',id)
+            } else {
+                await sb.from('productos').insert({nombre,precio,imagen_url:imagen,descripcion:desc,categoria:categ})
+            }
+            cerrarModal(); cargarProductos()
+        }
+
+        async function eliminarProducto(id) {
+            if (!confirm('¿Eliminar este producto?')) return
+            await sb.from('productos').delete().eq('id',id); cargarProductos()
+        }
+
+        // Usuarios
+        async function cargarUsuarios() {
+            const { data } = await sb.from('usuarios').select('*').order('created_at',{ascending:false})
+            const el = document.getElementById('tabla__usuarios')
+            if (!data||data.length===0) { el.innerHTML='<div class="loading__txt">No hay usuarios.</div>'; return }
+            el.innerHTML=`<table class="data__table">
+                <thead><tr><th>Nombre</th><th>Rol</th><th>Fecha registro</th></tr></thead>
+                <tbody>${data.map(u=>`<tr>
+                    <td><strong>${u.nombre||'—'}</strong></td>
+                    <td><span class="badge__rol ${u.rol==='admin'?'badge__admin':'badge__cliente'}">${u.rol}</span></td>
+                    <td>${u.created_at?new Date(u.created_at).toLocaleDateString('es-MX',{year:'numeric',month:'short',day:'numeric'}):'—'}</td>
+                </tr>`).join('')}</tbody>
+            </table>`
+        }
+
+        // Mensajes
+        async function cargarMensajes() {
+            const { data } = await sb.from('contacto').select('*').order('created_at',{ascending:false})
+            const el = document.getElementById('tabla__mensajes')
+            if (!data||data.length===0) { el.innerHTML='<div class="loading__txt">No hay mensajes.</div>'; return }
+            el.innerHTML=`<table class="data__table">
+                <thead><tr><th>Nombre</th><th>Correo</th><th>Mensaje</th><th>Fecha</th></tr></thead>
+                <tbody>${data.map(m=>`<tr>
+                    <td><strong>${m.nombre}</strong></td>
+                    <td>${m.correo}</td>
+                    <td style="max-width:300px;">${m.mensaje}</td>
+                    <td style="white-space:nowrap;">${new Date(m.created_at).toLocaleDateString('es-MX',{year:'numeric',month:'short',day:'numeric'})}</td>
+                </tr>`).join('')}</tbody>
+            </table>`
+        }
+
+        // Init
+        verificarAdmin().then(u => { if(u){ cargarStats() } })
+    </script>
+</body>
+</html>
