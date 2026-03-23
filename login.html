@@ -227,8 +227,13 @@
         // Redirigir si ya tiene sesión
         sb.auth.getSession().then(async ({ data }) => {
             if (!data.session) return
-            const { data: p } = await sb.from('usuarios').select('rol').eq('id',data.session.user.id).single()
-            window.location.href = p?.rol==='admin' ? 'admin.html' : 'index.html'
+            const { data: p } = await sb.from('usuarios').select('rol').eq('id', data.session.user.id).single()
+            // Solo redirigir si se encontró el perfil
+            if (!p) {
+                await sb.auth.signOut()
+                return
+            }
+            window.location.href = p.rol === 'admin' ? 'admin.html' : 'index.html'
         })
     </script>
     <script src="js/jquery-3.3.1.min.js"></script>
