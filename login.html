@@ -6,7 +6,7 @@
     <meta name="description" content="Yvette's - Iniciar Sesión">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Yvette's - Iniciar Sesión</title>
+    <title>Yvette's</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
@@ -432,7 +432,7 @@
 
             // Insertar en tabla perfiles con rol cliente
             if (data.user) {
-                await supabaseClient.from('perfiles').insert({
+                await supabaseClient.from('usuarios').insert({
                     id: data.user.id,
                     nombre: nombre,
                     rol: 'cliente'
@@ -566,7 +566,7 @@
 
             // Consultar rol en tabla perfiles
             const { data: perfil } = await supabaseClient
-                .from('perfiles')
+                .from('usuarios')
                 .select('rol')
                 .eq('id', usuarioSesion.id)
                 .single()
