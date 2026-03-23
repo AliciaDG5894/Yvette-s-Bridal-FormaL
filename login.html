@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yvette's - Iniciar Sesión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/elegant-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/features.css">
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <style>
+        .login__section{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f9f6f2;padding:60px 15px}
+        .login__box{background:#fff;border-radius:8px;box-shadow:0 4px 30px rgba(0,0,0,.08);padding:48px 40px;width:100%;max-width:440px}
+        .login__box h3{font-size:24px;font-weight:800;color:#1c1c1c;margin-bottom:6px;text-align:center}
+        .login__box p.subtitle{text-align:center;color:#aaa;font-size:13px;margin-bottom:24px}
+        .login__tabs{display:flex;margin-bottom:26px;border-bottom:2px solid #f0f0f0}
+        .login__tab{flex:1;text-align:center;padding:10px 0;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#aaa;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .3s}
+        .login__tab.active{color:#ca1515;border-bottom:2px solid #ca1515}
+        .login__input{margin-bottom:16px}
+        .login__input label{display:block;font-size:11px;font-weight:700;color:#555;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+        .login__input input{width:100%;height:46px;border:1px solid #e0e0e0;border-radius:4px;padding:0 14px;font-size:14px;color:#1c1c1c;outline:none;transition:border .3s;font-family:'Montserrat',sans-serif}
+        .login__input input:focus{border-color:#ca1515}
+        .login__btn{width:100%;height:46px;background:#ca1515;color:#fff;border:none;border-radius:4px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-top:6px;transition:background .3s;font-family:'Montserrat',sans-serif}
+        .login__btn:hover{background:#a01010}
+        .login__btn:disabled{background:#ccc;cursor:not-allowed}
+        .login__links{text-align:center;margin-top:16px;font-size:12px;color:#777}
+        .login__links a{color:#ca1515;text-decoration:none;font-weight:600;cursor:pointer}
+        .login__links a:hover{text-decoration:underline}
+        .login__message{padding:11px 14px;border-radius:4px;font-size:12px;font-weight:600;margin-bottom:16px;display:none;text-align:center;font-family:'Montserrat',sans-serif}
+        .login__message.success{background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7}
+        .login__message.error{background:#ffebee;color:#c62828;border:1px solid #ef9a9a}
+        .login__message.info{background:#e3f2fd;color:#1565c0;border:1px solid #90caf9}
+        .mfa__code__inputs{display:flex;gap:8px;justify-content:center;margin:20px 0}
+        .mfa__code__inputs input{width:46px;height:54px;text-align:center;font-size:22px;font-weight:700;border:2px solid #e0e0e0;border-radius:6px;outline:none;transition:border .3s;font-family:'Montserrat',sans-serif}
+        .mfa__code__inputs input:focus{border-color:#ca1515}
+        .mfa__info{text-align:center;font-size:12px;color:#777;margin-bottom:4px}
+        .mfa__demo{background:#fff8e1;border:1px dashed #f9a825;border-radius:6px;padding:10px 14px;text-align:center;font-size:13px;margin:12px 0;font-family:'Montserrat',sans-serif}
+        .mfa__demo strong{font-size:26px;letter-spacing:8px;color:#1c1c1c;display:block;margin-top:4px}
+        .back__link{display:inline-block;margin-bottom:18px;font-size:12px;color:#ca1515;cursor:pointer;font-weight:700}
+        .back__link:hover{text-decoration:underline}
+        #recover__form,#mfa__form,#registro__form{display:none}
+    </style>
+</head>
+<body>
+    <header class="header" style="position:relative;">
+        <div class="container-fluid">
+            <div class="row align-items-center" style="padding:16px 0;">
+                <div class="col-12 text-center">
+                    <a href="./index.html"><img src="img/log1.png" alt="Yvette's" style="height:50px;"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="login__section">
+        <div class="login__box">
+            <div class="login__message" id="mensaje"></div>
+
+            <!-- TABS -->
+            <div class="login__tabs" id="tabs__container">
+                <div class="login__tab active" id="tab__login" onclick="cambiarTab('login')">Iniciar Sesión</div>
+                <div class="login__tab" id="tab__registro" onclick="cambiarTab('registro')">Registrarse</div>
+            </div>
+
+            <!-- LOGIN -->
+            <div id="login__form">
+                <div class="login__input">
+                    <label>Correo electrónico</label>
+                    <input type="email" id="correo" placeholder="correo@gmail.com" onkeydown="if(event.key==='Enter')iniciarSesion()">
+                </div>
+                <div class="login__input">
+                    <label>Contraseña</label>
+                    <input type="password" id="contrasena" placeholder="••••••••" onkeydown="if(event.key==='Enter')iniciarSesion()">
+                </div>
+                <button class="login__btn" id="btn__login" onclick="iniciarSesion()">Iniciar Sesión</button>
+                <div class="login__links"><a onclick="mostrarRecuperar()">¿Olvidaste tu contraseña?</a></div>
+            </div>
+
+            <!-- REGISTRO -->
+            <div id="registro__form">
+                <div class="login__input"><label>Nombre completo</label><input type="text" id="reg__nombre" placeholder="Tu nombre"></div>
+                <div class="login__input"><label>Correo electrónico</label><input type="email" id="reg__correo" placeholder="correo@gmail.com"></div>
+                <div class="login__input"><label>Contraseña</label><input type="password" id="reg__contrasena" placeholder="Mínimo 6 caracteres"></div>
+                <div class="login__input"><label>Confirmar contraseña</label><input type="password" id="reg__confirmar" placeholder="Repite tu contraseña"></div>
+                <button class="login__btn" id="btn__registro" onclick="registrarse()">Crear Cuenta</button>
+            </div>
+
+            <!-- MFA -->
+            <div id="mfa__form">
+                <h3>Verificación</h3>
+                <p class="subtitle">Segundo factor de autenticación</p>
+                <p class="mfa__info">Ingresa el código de verificación</p>
+                <div class="mfa__demo">🔐 Código de acceso:<strong id="codigo__visible">------</strong></div>
+                <div class="mfa__code__inputs">
+                    <input type="text" maxlength="1" class="mfa__digit" id="d1" oninput="mfaAvanzar(this,'d2')">
+                    <input type="text" maxlength="1" class="mfa__digit" id="d2" oninput="mfaAvanzar(this,'d3')">
+                    <input type="text" maxlength="1" class="mfa__digit" id="d3" oninput="mfaAvanzar(this,'d4')">
+                    <input type="text" maxlength="1" class="mfa__digit" id="d4" oninput="mfaAvanzar(this,'d5')">
+                    <input type="text" maxlength="1" class="mfa__digit" id="d5" oninput="mfaAvanzar(this,'d6')">
+                    <input type="text" maxlength="1" class="mfa__digit" id="d6" oninput="mfaAvanzar(this,null)">
+                </div>
+                <button class="login__btn" onclick="verificarMFA()">Verificar Código</button>
+                <div class="login__links">
+                    <a onclick="reenviarCodigo()">Reenviar código</a> &nbsp;·&nbsp; <a onclick="mostrarLogin()">Volver</a>
+                </div>
+            </div>
+
+            <!-- RECUPERAR -->
+            <div id="recover__form">
+                <span class="back__link" onclick="mostrarLogin()">← Volver</span>
+                <h3>Recuperar Contraseña</h3>
+                <p class="subtitle">Simularemos el envío de un enlace a tu correo</p>
+                <div class="login__input"><label>Correo electrónico</label><input type="email" id="correo__recover" placeholder="tucorreo@email.com"></div>
+                <button class="login__btn" onclick="recuperarContrasena()">Enviar enlace</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const SUPABASE_URL = 'https://odlebtlesvinsfaokiiz.supabase.co'
+        const SUPABASE_KEY = 'sb_publishable_SozvaH9FjvRZdCTSQBhGdg_YQnPX-LT'
+        const { createClient } = supabase
+        const sb = createClient(SUPABASE_URL, SUPABASE_KEY)
+
+        let codigoMFA = '', usuarioSesion = null
+
+        function msg(txt, tipo) { const e=document.getElementById('mensaje'); e.textContent=txt; e.className=`login__message ${tipo}`; e.style.display='block' }
+        function noMsg() { document.getElementById('mensaje').style.display='none' }
+        function btn(id,txt,dis) { const b=document.getElementById(id); b.textContent=txt; b.disabled=dis }
+
+        function cambiarTab(tab) {
+            noMsg()
+            document.getElementById('login__form').style.display    = tab==='login'    ? 'block':'none'
+            document.getElementById('registro__form').style.display = tab==='registro' ? 'block':'none'
+            document.getElementById('tab__login').classList.toggle('active',    tab==='login')
+            document.getElementById('tab__registro').classList.toggle('active', tab==='registro')
+        }
+        function mostrarMFA() {
+            document.getElementById('tabs__container').style.display='none'
+            document.getElementById('login__form').style.display='none'
+            document.getElementById('mfa__form').style.display='block'
+            document.querySelectorAll('.mfa__digit').forEach(i=>i.value='')
+            document.getElementById('d1').focus(); noMsg()
+        }
+        function mostrarLogin() {
+            document.getElementById('tabs__container').style.display='flex'
+            document.getElementById('login__form').style.display='block'
+            document.getElementById('mfa__form').style.display='none'
+            document.getElementById('recover__form').style.display='none'
+            document.getElementById('registro__form').style.display='none'
+            document.getElementById('tab__login').classList.add('active')
+            document.getElementById('tab__registro').classList.remove('active')
+            noMsg()
+        }
+        function mostrarRecuperar() {
+            document.getElementById('tabs__container').style.display='none'
+            document.getElementById('login__form').style.display='none'
+            document.getElementById('recover__form').style.display='block'; noMsg()
+        }
+
+        function generarCodigo() {
+            codigoMFA = Math.floor(100000+Math.random()*900000).toString()
+            document.getElementById('codigo__visible').textContent = codigoMFA
+        }
+        function mfaAvanzar(input, sigId) {
+            input.value = input.value.replace(/\D/g,'')
+            if (input.value && sigId) document.getElementById(sigId).focus()
+        }
+        function reenviarCodigo() {
+            generarCodigo(); msg('Nuevo código generado.','info')
+            document.querySelectorAll('.mfa__digit').forEach(i=>i.value='')
+            document.getElementById('d1').focus()
+        }
+
+        async function iniciarSesion() {
+            const correo = document.getElementById('correo').value.trim()
+            const pass   = document.getElementById('contrasena').value
+            if (!correo||!pass) { msg('Completa todos los campos.','error'); return }
+            btn('btn__login','Verificando...',true)
+            const { data, error } = await sb.auth.signInWithPassword({ email:correo, password:pass })
+            if (error) { msg('Correo o contraseña incorrectos.','error'); btn('btn__login','Iniciar Sesión',false); return }
+            usuarioSesion = data.user
+            generarCodigo(); mostrarMFA()
+            msg('Ingresa el código que aparece arriba.','info')
+            btn('btn__login','Iniciar Sesión',false)
+        }
+
+        async function verificarMFA() {
+            const ingresado = ['d1','d2','d3','d4','d5','d6'].map(id=>document.getElementById(id).value).join('')
+            if (ingresado.length<6) { msg('Ingresa los 6 dígitos.','error'); return }
+            if (ingresado!==codigoMFA) { msg('❌ Código incorrecto. Acceso denegado.','error'); return }
+            msg('✅ Acceso concedido. Redirigiendo...','success')
+            const { data: perfil } = await sb.from('usuarios').select('rol').eq('id',usuarioSesion.id).single()
+            setTimeout(() => {
+                window.location.href = (perfil && perfil.rol==='admin') ? 'admin.html' : 'index.html'
+            }, 1500)
+        }
+
+        async function registrarse() {
+            const nombre    = document.getElementById('reg__nombre').value.trim()
+            const correo    = document.getElementById('reg__correo').value.trim()
+            const pass      = document.getElementById('reg__contrasena').value
+            const confirmar = document.getElementById('reg__confirmar').value
+            if (!nombre||!correo||!pass||!confirmar) { msg('Completa todos los campos.','error'); return }
+            if (pass.length<6) { msg('Mínimo 6 caracteres.','error'); return }
+            if (pass!==confirmar) { msg('Las contraseñas no coinciden.','error'); return }
+            btn('btn__registro','Creando cuenta...',true)
+            const { data, error } = await sb.auth.signUp({ email:correo, password:pass })
+            if (error) { msg('Error: '+error.message,'error'); btn('btn__registro','Crear Cuenta',false); return }
+            if (data.user) await sb.from('usuarios').insert({ id:data.user.id, nombre, rol:'cliente' })
+            msg('✅ Cuenta creada. Ya puedes iniciar sesión.','success')
+            btn('btn__registro','Crear Cuenta',false)
+            ;['reg__nombre','reg__correo','reg__contrasena','reg__confirmar'].forEach(id=>document.getElementById(id).value='')
+            setTimeout(()=>cambiarTab('login'),2000)
+        }
+
+        async function recuperarContrasena() {
+            const correo = document.getElementById('correo__recover').value.trim()
+            if (!correo) { msg('Ingresa tu correo.','error'); return }
+            msg(`✅ Simulación: Se enviaría un enlace de recuperación a ${correo}. Revisa tu bandeja.`,'success')
+        }
+
+        // Redirigir si ya tiene sesión
+        sb.auth.getSession().then(async ({ data }) => {
+            if (!data.session) return
+            const { data: p } = await sb.from('usuarios').select('rol').eq('id',data.session.user.id).single()
+            window.location.href = p?.rol==='admin' ? 'admin.html' : 'index.html'
+        })
+    </script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
