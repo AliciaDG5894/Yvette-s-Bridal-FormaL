@@ -72,8 +72,8 @@
                             <li><a href="./Nosotros.html">Nosotros</a></li>
                             <li><a href="./contact.html">Contactanos</a></li>
                         </ul>
-                        <button onclick="changeLang('es')">ES</button>
-                        <button onclick="changeLang('en')">EN</button>
+                        <!-- <button onclick="changeLang('es')">ES</button>
+                        <button onclick="changeLang('en')">EN</button> -->
                     </nav>
                 </div>
                 <div class="col-lg-3">
@@ -94,6 +94,18 @@
         </div>
     </header>
     <!-- Header Section End -->
+
+    <!-- TRADUCCIÓN -->
+    <div id="google_translate_element"></div>
+    <script>
+    function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'en,es'
+    }, 'google_translate_element');
+    }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <!-- Categories Section Begin -->
     <section class="categories">
