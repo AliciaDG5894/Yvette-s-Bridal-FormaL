@@ -38,6 +38,12 @@ function changeLang(newLang){
     location.reload();
 }
 
+function cambiarIdioma(lang) {
+    var select = document.querySelector(".goog-te-combo");
+    select.value = lang;
+    select.dispatchEvent(new Event("change"));
+}
+
 $(document).ready(function () {
 
     let savedProducts = JSON.parse(localStorage.getItem("products")) || [];
