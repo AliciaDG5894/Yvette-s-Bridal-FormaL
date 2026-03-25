@@ -2,6 +2,42 @@
    FEATURES.JS - Nuevas Funcionalidades
    ======================================== */
 
+const translations = {
+    es: {
+        nuevo: "Nuevo",
+        modoOscuro: "Modo Oscuro",
+        modoClaro: "Modo Claro",
+        verDescripcion: "Ver descripción ▾",
+        ocultar: "Ocultar ▴",
+        agregarProducto: "Agregar Producto",
+        nombreProducto: "Nombre del producto",
+        errorNombre: "El nombre es obligatorio.",
+        eliminarProducto: "¿Eliminar este producto?",
+        sinProductos: "Sin productos en ese rango.",
+        ofertaDia: "Ver Oferta del Día"
+    },
+    en: {
+        nuevo: "New",
+        modoOscuro: "Dark Mode",
+        modoClaro: "Light Mode",
+        verDescripcion: "View description ▾",
+        ocultar: "Hide ▴",
+        agregarProducto: "Add Product",
+        nombreProducto: "Product name",
+        errorNombre: "Name is required.",
+        eliminarProducto: "Delete this product?",
+        sinProductos: "No products in this range.",
+        ofertaDia: "View Deal of the Day"
+    }
+};
+let lang = localStorage.getItem("lang") || "es";
+const t = translations[lang];
+
+function changeLang(newLang){
+    localStorage.setItem("lang", newLang);
+    location.reload();
+}
+
 $(document).ready(function () {
 
     let savedProducts = JSON.parse(localStorage.getItem("products")) || [];
@@ -12,7 +48,7 @@ $(document).ready(function () {
         <div class="col-lg-4 col-md-6 shop-product-col">
             <div class="product__item">
                 <div class="product__item__pic set-bg" data-setbg="${product.img}">
-                    <div class="label new">Nuevo</div>
+                    <div class="label new">${t.nuevo}</div>
                     <ul class="product__hover">
                         <li><a href="${product.img}" class="image-popup">
                             <span class="arrow_expand"></span>
@@ -71,7 +107,7 @@ $(document).ready(function () {
             $('#dm-label').text('Modo Claro');
         } else {
             $('#dm-icon').text('🌙');
-            $('#dm-label').text('Modo Oscuro');
+            $('#dm-label').text(t.modoOscuro);
         }
     });
 
@@ -95,7 +131,7 @@ $(document).ready(function () {
     $('.product__item__text').each(function (i) {
         var desc = descriptions[i % descriptions.length];
         var $descSpan = $('<p class="product__desc">' + desc + '</p>');
-        var $btn = $('<button class="btn-mostrar-mas">Ver descripción ▾</button>');
+        var $btn = $('<button class="btn-mostrar-mas">'+t.verDescripcion+'</button>');
         $(this).append($descSpan).append($btn);
     });
 
@@ -265,7 +301,7 @@ $(document).ready(function () {
         var productName = $(this).data('name');
 
         // Confirmación opcional
-        if (!confirm("¿Eliminar este producto?")) return;
+        if (!confirm(t.eliminarProducto)) return;
 
         // Eliminar visualmente
         $(this).closest('.col-lg-4').fadeOut(300, function () {
