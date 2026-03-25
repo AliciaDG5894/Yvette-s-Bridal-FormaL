@@ -31,31 +31,6 @@
 /* Template default CSS
 /*----------------------------------------*/
 
-#google_translate_element {
-    background: #222;
-    padding: 10px;
-    border-radius: 10px;
-    display: inline-block;
-}
-
-/* Cambiar apariencia del select */
-.goog-te-combo {
-    background-color: #fff;
-    color: #000;
-    border-radius: 5px;
-    padding: 5px;
-    border: none;
-}
-
-/* Ocultar el logo de Google */
-.goog-logo-link {
-    display: none !important;
-}
-
-/* Ocultar texto "Powered by" */
-.goog-te-gadget {
-    font-size: 0px;
-}
 
 html,
 body {
