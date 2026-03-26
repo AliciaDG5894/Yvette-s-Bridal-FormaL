@@ -59,9 +59,6 @@
             </button>
             <div id="acc-panel" style="display:none;" role="menu">
                 <p class="acc-label">Accesibilidad</p>
-                <button id="acc-contrast-btn" onclick="toggleContraste()" title="Alto contraste" aria-label="Activar modo alto contraste">
-                    ◑ Alto contraste
-                </button>
                 <button id="acc-font-btn" onclick="ciclárFuente()" title="Aumentar texto" aria-label="Cambiar tamaño de texto">
                     A
                 </button>
