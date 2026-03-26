@@ -31,16 +31,15 @@
 /* Template default CSS
 /*----------------------------------------*/
 
-/* Oculta la barra */
-.goog-te-banner-frame {
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame {
     display: none !important;
     visibility: hidden !important;
-    height: 0px !important;
+    height: 0 !important;
 }
 
-/* SOLO corregir lo que Google rompe */
 body {
-    margin-top: 0px !important;
     top: 0px !important;
 }
 
