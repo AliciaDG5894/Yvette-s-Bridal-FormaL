@@ -48,7 +48,20 @@ function cambiarIdioma(lang) {
             clearInterval(interval);
         }
     }, 500);
-}  
+}
+
+setInterval(function () {
+    var frame = document.querySelector('.goog-te-banner-frame');
+
+    if (frame) {
+        frame.style.display = 'none'; // lo oculta
+        frame.remove(); // lo elimina completamente
+    }
+
+    // 🔥 MUY IMPORTANTE
+    document.body.style.top = '0px';
+    document.documentElement.style.top = '0px'; // <-- ESTE TE FALTABA
+}, 500);
 
 $(document).ready(function () {
 
