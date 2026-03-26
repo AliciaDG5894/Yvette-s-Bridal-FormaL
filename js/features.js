@@ -38,34 +38,17 @@
 //     location.reload();
 // }
 
-function cambiarIdioma(lang) {
-    var interval = setInterval(function() {
-        var select = document.querySelector(".goog-te-combo");
-        
-        if (select) {
-            select.value = lang;
-            select.dispatchEvent(new Event("change"));
-            clearInterval(interval);
-        }
-    }, 500);
-}
+// ELIMINAR BARRA DE GOOGLE TRADUCTOR SIEMPRE
+setInterval(() => {
+    const frame = document.querySelector('.goog-te-banner-frame');
+    const skip = document.querySelector('.skiptranslate');
 
-    // ELIMINAR COMPLETAMENTE LA BARRA DE GOOGLE
-    const observer = new MutationObserver(() => {
-        const frame = document.querySelector('.goog-te-banner-frame');
-        if (frame) {
-            frame.remove();
-        }
+    if (frame) frame.remove();
+    if (skip) skip.remove();
 
-        document.body.style.top = '0px';
-        document.documentElement.style.top = '0px';
-    });
-
-    // Observa cambios en todo el DOM
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
+    document.body.style.top = '0px';
+    document.documentElement.style.top = '0px';
+}, 300);
 
 $(document).ready(function () {
 
