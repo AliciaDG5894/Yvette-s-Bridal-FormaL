@@ -31,17 +31,17 @@
 /* Template default CSS
 /*----------------------------------------*/
 
-.goog-te-banner-frame,
-.goog-te-banner-frame.skiptranslate,
-iframe.goog-te-banner-frame {
-    display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
-}
-
 body {
     top: 0px !important;
-} 
+}
+
+.skiptranslate iframe {
+    display: none !important;
+}
+
+.skiptranslate {
+    display: none !important;
+}
 
 html {
 	/* agregue el top y position*/
