@@ -41,10 +41,8 @@
 // ELIMINAR BARRA DE GOOGLE TRADUCTOR SIEMPRE
 setInterval(() => {
     const frame = document.querySelector('.goog-te-banner-frame');
-    const skip = document.querySelector('.skiptranslate');
 
-    if (frame) frame.remove();
-    if (skip) skip.remove();
+    if (frame) frame.style.display = 'none';
 
     document.body.style.top = '0px';
     document.documentElement.style.top = '0px';
