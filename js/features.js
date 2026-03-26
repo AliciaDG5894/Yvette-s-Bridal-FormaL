@@ -48,7 +48,7 @@ function cambiarIdioma(lang) {
             clearInterval(interval);
         }
     }, 500);
-} 
+}  
 
 $(document).ready(function () {
 
