@@ -50,18 +50,22 @@ function cambiarIdioma(lang) {
     }, 500);
 }
 
-setInterval(function () {
-    var frame = document.querySelector('.goog-te-banner-frame');
+    // ELIMINAR COMPLETAMENTE LA BARRA DE GOOGLE
+    const observer = new MutationObserver(() => {
+        const frame = document.querySelector('.goog-te-banner-frame');
+        if (frame) {
+            frame.remove();
+        }
 
-    if (frame) {
-        frame.style.display = 'none'; // lo oculta
-        frame.remove(); // lo elimina completamente
-    }
+        document.body.style.top = '0px';
+        document.documentElement.style.top = '0px';
+    });
 
-    // 🔥 MUY IMPORTANTE
-    document.body.style.top = '0px';
-    document.documentElement.style.top = '0px'; // <-- ESTE TE FALTABA
-}, 500);
+    // Observa cambios en todo el DOM
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
 
 $(document).ready(function () {
 
