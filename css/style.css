@@ -31,9 +31,15 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+/* Ocultar barra superior de Google */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
 
 html,
 body {
+	/* agregue el top */
+	top: 0px !important; 
 	height: 100%;
 	font-family: "Montserrat", sans-serif;
 	-webkit-font-smoothing: antialiased;
