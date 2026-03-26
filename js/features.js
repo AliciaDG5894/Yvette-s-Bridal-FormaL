@@ -38,15 +38,17 @@
 //     location.reload();
 // }
 
-// ELIMINAR BARRA DE GOOGLE TRADUCTOR SIEMPRE
-setInterval(() => {
-    const frame = document.querySelector('.goog-te-banner-frame');
-
-    if (frame) frame.style.display = 'none';
-
-    document.body.style.top = '0px';
-    document.documentElement.style.top = '0px';
-}, 300);
+function cambiarIdioma(lang) {
+    var interval = setInterval(function() {
+        var select = document.querySelector(".goog-te-combo");
+        
+        if (select) {
+            select.value = lang;
+            select.dispatchEvent(new Event("change"));
+            clearInterval(interval);
+        }
+    }, 500);
+}
 
 $(document).ready(function () {
 
