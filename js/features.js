@@ -131,7 +131,7 @@ $(document).ready(function () {
     $('.product__item__text').each(function (i) {
         var desc = descriptions[i % descriptions.length];
         var $descSpan = $('<p class="product__desc">' + desc + '</p>');
-        var $btn = $('<button class="btn-mostrar-mas">t.verDescripcion</button>');
+        var $btn = $('<button class="btn-mostrar-mas">'+t.verDescripcion+'</button>');
         $(this).append($descSpan).append($btn);
     });
 
@@ -139,7 +139,7 @@ $(document).ready(function () {
         var $desc = $(this).prev('.product__desc');
         if ($desc.is(':visible')) {
             $desc.slideUp(200);
-            $(this).text(t.verDescripcion);
+            $(this).text('t.verDescripcion ▾');
         } else {
             $desc.slideDown(200);
             $(this).text('Ocultar ▴');
