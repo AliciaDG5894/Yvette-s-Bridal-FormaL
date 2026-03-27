@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yvette's - Panel Admin</title>
+    <title data-key="tituloAdmin">Yvette's - Panel Admin</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -17,14 +17,14 @@
         <div class="admin__sidebar__logo">
             <a href="index.html"><img src="img/log1.png" alt="Yvette's"></a>
         </div>
-        <div class="admin__nav__sep">Principal</div>
+        <div class="admin__nav__sep" data-key="principal">Principal</div>
         <div class="admin__nav__item active" onclick="showSection('dashboard')"><i class="fa fa-dashboard"></i> Dashboard</div>
-        <div class="admin__nav__sep">Gestión</div>
-        <div class="admin__nav__item" onclick="showSection('productos')"><i class="fa fa-tag"></i> Productos</div>
-        <div class="admin__nav__item" onclick="showSection('usuarios')"><i class="fa fa-users"></i> Usuarios</div>
-        <div class="admin__nav__item" onclick="showSection('mensajes')"><i class="fa fa-envelope"></i> Mensajes</div>
-        <div class="admin__nav__sep">Cuenta</div>
-        <div class="admin__nav__item" onclick="cerrarSesion()"><i class="fa fa-sign-out"></i> Cerrar Sesión</div>
+        <div class="admin__nav__sep" data-key="gestion">Gestión</div>
+        <div class="admin__nav__item" onclick="showSection('productos')"><i class="fa fa-tag"></i> <span data-key="productos">Productos</span></div>
+        <div class="admin__nav__item" onclick="showSection('usuarios')"><i class="fa fa-users"></i> <span data-key="usuarios">Usuarios</span></div>
+        <div class="admin__nav__item" onclick="showSection('mensajes')"><i class="fa fa-envelope"></i> <span data-key="mensajes">Mensajes</span></div>
+        <div class="admin__nav__sep" data-key="cuenta">Cuenta</div>
+        <div class="admin__nav__item" onclick="cerrarSesion()"><i class="fa fa-sign-out"></i> <span data-key="cerrarSesion">Cerrar Sesión</span></div>
         <!-- <div style="padding:24px;margin-top:auto;">
             <a href="index.html" style="color:rgba(255,255,255,.4);font-size:12px;text-decoration:none;">← Ver sitio</a>
         </div> -->
@@ -42,33 +42,33 @@
         <!-- Dashboard -->
         <div class="panel__section active" id="sec__dashboard">
             <div class="stat__grid">
-                <div class="stat__card"><div class="stat__card__icon"><i class="fa fa-users"></i></div><div class="stat__card__num" id="stat__usuarios">—</div><div class="stat__card__label">Usuarios</div></div>
-                <div class="stat__card"><div class="stat__card__icon"><i class="fa fa-envelope"></i></div><div class="stat__card__num" id="stat__mensajes">—</div><div class="stat__card__label">Mensajes</div></div>
-                <div class="stat__card"><div class="stat__card__icon"><i class="fa fa-shopping-cart"></i></div><div class="stat__card__num" id="stat__carritos">—</div><div class="stat__card__label">Items en carrito</div></div>
-                <div class="stat__card"><div class="stat__card__icon"><i class="fa fa-tag"></i></div><div class="stat__card__num" id="stat__productos">—</div><div class="stat__card__label">Productos</div></div>
+                <div class="stat__card"><div class="stat__card__icon"><i class="fa fa-users"></i></div><div class="stat__card__num" id="stat__usuarios">—</div><div class="stat__card__label" data-key="usuarios">Usuarios</div></div>
+                <div class="stat__card"><div class="stat__card__icon"><i class="fa fa-envelope"></i></div><div class="stat__card__num" id="stat__mensajes">—</div><div class="stat__card__label" data-key="mensajes">Mensajes</div></div>
+                <div class="stat__card"><div class="stat__card__icon"><i class="fa fa-shopping-cart"></i></div><div class="stat__card__num" id="stat__carritos">—</div><div class="stat__card__label" data-key="itemsCarrito">Items en carrito</div></div>
+                <div class="stat__card"><div class="stat__card__icon"><i class="fa fa-tag"></i></div><div class="stat__card__num" id="stat__productos">—</div><div class="stat__card__label" data-key="productos">Productos</div></div>
             </div>
-            <p style="color:#aaa;font-size:13px;">Bienvenido al panel de administración de Yvette's.</p>
+            <p data-key="bienvenidaAdmin">Bienvenido al panel de administración de Yvette's.</p>
         </div>
 
         <!-- Productos -->
         <div class="panel__section" id="sec__productos">
             <div class="section__header">
-                <h2>Productos</h2>
-                <button class="btn__primary" onclick="abrirModalProducto()"><i class="fa fa-plus"></i> Nuevo producto</button>
+                <h2 data-key="productos">Productos</h2>
+                <button class="btn__primary" onclick="abrirModalProducto()"><i class="fa fa-plus"></i> <span data-key="nuevoProducto">Nuevo producto</span></button>
             </div>
-            <div id="tabla__productos"><div class="loading__txt">Cargando...</div></div>
+            <div id="tabla__productos"><div class="loading__txt" data-key="cargando">Cargando...</div></div>
         </div>
 
         <!-- Usuarios -->
         <div class="panel__section" id="sec__usuarios">
-            <div class="section__header"><h2>Usuarios registrados</h2></div>
-            <div id="tabla__usuarios"><div class="loading__txt">Cargando...</div></div>
+            <div class="section__header"><h2 data-key="usuariosRegistrados">Usuarios registrados</h2></div>
+            <div id="tabla__usuarios"><div class="loading__txt" data-key="cargando">Cargando...</div></div>
         </div>
 
         <!-- Mensajes -->
         <div class="panel__section" id="sec__mensajes">
-            <div class="section__header"><h2>Mensajes de contacto</h2></div>
-            <div id="tabla__mensajes"><div class="loading__txt">Cargando...</div></div>
+            <div class="section__header"><h2 data-key="mensajesContacto">Mensajes de contacto</h2></div>
+            <div id="tabla__mensajes"><div class="loading__txt" data-key="cargando">Cargando...</div></div>
         </div>
 
     </main>
@@ -76,23 +76,23 @@
     <!-- Modal producto -->
     <div class="modal__overlay" id="modal__producto">
         <div class="modal__box">
-            <h3 id="modal__titulo">Nuevo Producto</h3>
+            <h3 id="modal__titulo" data-key="nuevoProducto">Nuevo Producto</h3>
             <input type="hidden" id="prod__id">
-            <div class="modal__input"><label>Nombre</label><input type="text" id="prod__nombre" placeholder="Nombre del producto"></div>
-            <div class="modal__input"><label>Precio ($)</label><input type="number" id="prod__precio" placeholder="0.00" step="0.01"></div>
-            <div class="modal__input"><label>Categoría</label>
+            <div class="modal__input"><label data-key="nombre">Nombre</label><input type="text" placeholder="Nombre del producto" data-key-placeholder="nombreProducto"></div>
+            <div class="modal__input"><label data-key="precio">Precio ($)</label><input type="number" placeholder="0.00" data-key-placeholder="precio"></div>
+            <div class="modal__input"><label data-key="categoria">Categoría</label>
                 <select id="prod__categoria">
-                    <option value="Boda">Boda</option>
-                    <option value="Prom">Prom</option>
-                    <option value="Esmoquin">Esmoquin</option>
-                    <option value="Accesorios">Accesorios</option>
+                    <option value="Boda" data-key="boda">Boda</option>
+                    <option value="Prom" data-key="prom">Prom</option>
+                    <option value="Esmoquin" data-key="esmoquin">Esmoquin</option>
+                    <option value="Accesorios" data-key="accesorios">Accesorios</option>
                 </select>
             </div>
-            <div class="modal__input"><label>URL de imagen</label><input type="text" id="prod__imagen" placeholder="img/product/..."></div>
-            <div class="modal__input"><label>Descripción</label><textarea id="prod__desc" rows="3" placeholder="Descripción breve..."></textarea></div>
+            <div class="modal__input"><label data-key="imagenUrl">URL de imagen</label><input type="text" placeholder="img/product/..." data-key-placeholder="imagen"></div>
+            <div class="modal__input"><label data-key="descripcion">Descripción</label><textarea placeholder="Descripción breve..." data-key-placeholder="descripcion"></textarea></div>
             <div class="modal__actions">
-                <button class="btn__cancel" onclick="cerrarModal()">Cancelar</button>
-                <button class="btn__primary" onclick="guardarProducto()">Guardar</button>
+                <button class="btn__cancel" data-key="cancelar" onclick="cerrarModal()">Cancelar</button>
+                <button class="btn__primary" data-key="guardar" onclick="guardarProducto()">Guardar</button>
             </div>
         </div>
     </div>
