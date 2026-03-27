@@ -200,7 +200,7 @@
         async function recuperarContrasena() {
             const correo = document.getElementById('correo__recover').value.trim()
             if (!correo) { msg('Ingresa tu correo.','error'); return }
-            msg(`✅ Simulación: Se enviaría un enlace de recuperación a ${correo}. Revisa tu bandeja.`,'success')
+            msg(t.recuperacionSimulada.replace('{correo}', correo), 'success');
         }
 
         // Redirigir si ya tiene sesión
