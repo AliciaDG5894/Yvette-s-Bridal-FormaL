@@ -76,7 +76,8 @@ es: {
     boletin: "Boletín Informativo",
     suscribete: "Suscríbete",
     email: "Correo electrónico",
-    buscar: "Busca aquí..."
+    buscar: "Busca aquí...",
+    iniciarSesion:"Iniciar Sesion"
 },
 en: {
     nuevo: "New",
@@ -151,7 +152,8 @@ en: {
     boletin: "Newsletter",
     suscribete: "Subscribe",
     email: "Email",
-    buscar: "Search here..."
+    buscar: "Search here...",
+    iniciarSesion:"Login"
 }
 };
 let lang = localStorage.getItem("lang") || "es";
