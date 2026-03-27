@@ -231,7 +231,8 @@ es: {
     ingresaCodigoArriba: "Ingresa el código que aparece arriba.",
     ingresa6: "Ingresa los 6 dígitos.",
     accesoOK: "✅ Acceso concedido. Redirigiendo...",
-    codigoIncorrecto: "❌ Código incorrecto. Acceso denegado."
+    codigoIncorrecto: "❌ Código incorrecto. Acceso denegado.",
+    recuperacionSimulada: "✅ Simulación: Se enviaría un enlace de recuperación a {correo}. Revisa tu bandeja."
 },
 en: {
     dashboard:'Dashboard',
@@ -463,7 +464,8 @@ en: {
     ingresaCodigoArriba: "Enter the code shown above.",
     ingresa6: "Enter the 6 digits.",
     accesoOK: "✅ Access granted. Redirecting...",
-    codigoIncorrecto: "❌ Incorrect code. Access denied."
+    codigoIncorrecto: "❌ Incorrect code. Access denied.",
+    recuperacionSimulada: "✅ Simulation: A recovery link would be sent to {correo}. Check your inbox."
 }
 };
 let lang = localStorage.getItem("lang") || "es";
@@ -557,7 +559,7 @@ $(document).ready(function () {
     ============================================ */
 
     // 🚫 NO mostrar en admin
-if (!$('body').hasClass('admin-page')) {
+    if (!$('body').hasClass('admin-page')) {
 
     var darkModeBtn = $('<button id="dark-mode-btn"><span id="dm-icon">🌙</span> <span id="dm-label">Modo Oscuro</span></button>');
     $('body').append(darkModeBtn);
