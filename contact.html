@@ -49,7 +49,7 @@
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__auth">
-            <a href="login.html">Iniciar Sesion</a>
+            <a href="login.html" data-key="inicio">Iniciar Sesion</a>
         </div>
     </div>
     <!-- Offcanvas Menu End -->
@@ -66,18 +66,18 @@
                 <div class="col-xl-6 col-lg-7">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.html">Inicio</a></li>
-                            <li><a href="./shop.html">Ropa</a></li>
-                            <li><a href="./shop-cart.html">Carrito</a></li>
-                            <li><a href="./Nosotros.html">Nosotros</a></li>
-                            <li class="active"><a href="./contact.html">Contactanos</a></li>
+                            <li class="active"><a href="./index.html" data-key="inicio">Inicio</a></li>
+                            <li><a href="./shop.html" data-key="ropa">Ropa</a></li>
+                            <li><a href="./shop-cart.html" data-key="carrito">Carrito</a></li>
+                            <li><a href="./Nosotros.html" data-key="nosotros">Nosotros</a></li>
+                            <li class="active"><a href="./contact.html" data-key="contacto">Contactanos</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="header__right">
                         <div class="header__right__auth">
-                            <a href="login.html">iniciar Sesion</a>
+                            <a href="login.html" data-key="inicio">iniciar Sesion</a>
                         </div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
@@ -103,8 +103,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="./index.html"><i class="fa fa-home"></i> Inicio</a>
-                        <span>Contactanos</span>
+                        <a href="./index.html"><i class="fa fa-home"></i> <span data-key="inicio">Inicio</span></a>
+                        <span data-key="contacto">Contactanos</span>
                     </div>
                 </div>
             </div>
@@ -119,28 +119,28 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="contact__content">
                             <div class="contact__address">
-                                <h5>Informacion de contacto</h5>
+                                <h5 data-key="info_contacto">Informacion de contacto</h5>
                                 <ul>
                                     <li>
-                                        <h6><i class="fa fa-map-marker"></i> Direccion</h6>
-                                        <p>A solo una milla al este de Tyndall PKWY/ HWY 98 en Callaway, Panama City 32404.</p>
+                                        <h6><i class="fa fa-map-marker"></i> <span data-key="direccion">Direccion</span></h6>
+                                        <p data-key="direccionTexto">A solo una milla al este de Tyndall PKWY/ HWY 98 en Callaway, Panama City 32404.</p>
                                     </li>
                                     <li>
-                                        <h6><i class="fa fa-phone"></i> Telefono</h6>
+                                        <h6><i class="fa fa-phone"></i> <span data-key="telefono">Telefono</span></h6>
                                         <p>(850) 871-3000  |  (125) 668-886</p>
                                     </li>
                                     <li>
-                                        <h6><i class="fa fa-headphones"></i> Correo</h6>
+                                        <h6><i class="fa fa-headphones"></i> <span data-key="correo">Correo</span></h6>
                                         <p>Yvette's@gmail.com</p>
                                     </li>
                                 </ul>
                             </div>
                             <div class="contact__form">
-                                <h5>Enviar mensaje</h5>
+                                <h5 data-key="enviarMensaje">Enviar mensaje</h5>
                                 <form action="#">
-                                <input type="text" id="contact__nombre" placeholder="Nombre">
-                                <input type="text" id="contact__correo" placeholder="Correo">
-                                <textarea id="contact__mensaje" placeholder="Mensaje"></textarea>
+                                <input type="text" id="contact__nombre" placeholder="Nombre" data-key-placeholder="nombre">
+                                <input type="text" id="contact__correo" placeholder="Correo" data-key-placeholder="correo">
+                                <textarea id="contact__mensaje" placeholder="Mensaje" data-key-placeholder="mensaje"></textarea>
                                 <div id="contact__msg" style="padding:10px 14px;border-radius:4px;font-size:12px;font-weight:600;margin:10px 0;display:none;font-family:Montserrat,sans-serif;"></div>
                                 <button class="site-btn" id="btn__enviar" onclick="enviarMensaje()">Enviar</button>
                                 </form>
@@ -226,7 +226,7 @@
                     <div class="footer__logo">
                         <a href="./index.html"><img src="img/log1.png" alt=""></a>
                     </div>
-                    <p>Descubre nuestra exclusiva selección de vestidos diseñados para hacer inolvidable tu día especial.</p>
+                    <p data-key="descripcionHero">Descubre nuestra exclusiva selección de vestidos diseñados para hacer inolvidable tu día especial.</p>
                     <div class="footer__payment">
                         <a href="#"><img src="img/payment/payment-1.png" alt=""></a>
                         <a href="#"><img src="img/payment/payment-2.png" alt=""></a>
@@ -238,32 +238,32 @@
             </div>
             <div class="col-lg-2 col-md-3 col-sm-5">
                 <div class="footer__widget">
-                    <h6>Enlaces rápidos</h6>
+                    <h6 data-key="enlaces">Enlaces rápidos</h6>
                     <ul>
-                        <li><a href="#">Nosotros</a></li>
-                        <li><a href="#">Blogs</a></li>
-                        <li><a href="#">Contacto</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#" data-key="nosotros">Nosotros</a></li>
+                        <li><a href="#" data-key="blogs">Blogs</a></li>
+                        <li><a href="#" data-key="contacto">Contacto</a></li>
+                        <li><a href="#" data-key="faq">FAQ</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4">
                 <div class="footer__widget">
-                    <h6>Cuentas</h6>
+                    <h6 data-key="cuentas">Cuentas</h6>
                     <ul>
-                        <li><a href="#">Mi cuenta</a></li>
-                        <li><a href="#">Pedidos</a></li>
-                        <li><a href="#">Compras</a></li>
-                        <li><a href="#">Lista de deseos</a></li>
+                        <li><a href="#" data-key="miCuenta">Mi cuenta</a></li>
+                        <li><a href="#" data-key="pedidos">Pedidos</a></li>
+                        <li><a href="#" data-key="compras">Compras</a></li>
+                        <li><a href="#" data-key="wishlist">Lista de deseos</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-4 col-md-8 col-sm-8">
                 <div class="footer__newslatter">
-                    <h6>Boletin Informativo</h6>
+                    <h6 data-key="boletin">Boletin Informativo</h6>
                     <form action="#">
-                        <input type="text" placeholder="Email">
-                        <button type="submit" class="site-btn">Subscribete</button>
+                        <input type="text" placeholder="Email" data-key-placeholder="email">
+                        <button type="submit" class="site-btn" data-key="subscribete">Subscribete</button>
                     </form>
                     <div class="footer__social">
                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -284,7 +284,7 @@
     <div class="h-100 d-flex align-items-center justify-content-center">
         <div class="search-close-switch">+</div>
         <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Busca aquí.....">
+            <input type="text" id="search-input" placeholder="Busca aquí....." data-key-placeholder="buscar">
         </form>
     </div>
 </div>
