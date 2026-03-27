@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yvette's - Iniciar Sesión</title>
+    <title data-key="tituloLogin">Yvette's - Iniciar Sesión</title>
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -31,40 +31,40 @@
 
             <!-- TABS -->
             <div class="login__tabs" id="tabs__container">
-                <div class="login__tab active" id="tab__login" onclick="cambiarTab('login')">Iniciar Sesión</div>
+                <div class="login__tab active" id="tab__login" onclick="cambiarTab('login')" data-key="iniciarSesion">Iniciar Sesión</div>
                 <!-- <div class="login__tab" id="tab__registro" onclick="cambiarTab('registro')">Registrarse</div> -->
             </div>
 
             <!-- LOGIN -->
             <div id="login__form">
                 <div class="login__input">
-                    <label>Correo electrónico</label>
+                    <label data-key="correo">Correo electrónico</label>
                     <input type="email" id="correo" placeholder="correo@gmail.com" onkeydown="if(event.key==='Enter')iniciarSesion()">
                 </div>
                 <div class="login__input">
-                    <label>Contraseña</label>
+                    <label data-key="contrasena">Contraseña</label>
                     <input type="password" id="contrasena" placeholder="••••••••" onkeydown="if(event.key==='Enter')iniciarSesion()">
                 </div>
-                <button class="login__btn" id="btn__login" onclick="iniciarSesion()">Iniciar Sesión</button>
-                <div class="login__links"><a onclick="mostrarRecuperar()">¿Olvidaste tu contraseña?</a></div>
-                <div class="login__links"><a href="index.html"> ← Regresar</a></div>
+                <button class="login__btn" id="btn__login" onclick="iniciarSesion()" data-key="iniciarSesion">Iniciar Sesión</button>
+                <div class="login__links"><a onclick="mostrarRecuperar()" data-key="olvideContrasena">¿Olvidaste tu contraseña?</a></div>
+                <div class="login__links">    <a href="index.html" data-key="regresar">← Regresar</a></div>
             </div>
 
             <!-- REGISTRO -->
             <div id="registro__form">
-                <div class="login__input"><label>Nombre completo</label><input type="text" id="reg__nombre" placeholder="Tu nombre"></div>
-                <div class="login__input"><label>Correo electrónico</label><input type="email" id="reg__correo" placeholder="correo@gmail.com"></div>
-                <div class="login__input"><label>Contraseña</label><input type="password" id="reg__contrasena" placeholder="Mínimo 6 caracteres"></div>
-                <div class="login__input"><label>Confirmar contraseña</label><input type="password" id="reg__confirmar" placeholder="Repite tu contraseña"></div>
-                <button class="login__btn" id="btn__registro" onclick="registrarse()">Crear Cuenta</button>
+                <div class="login__input"><label data-key="nombreCompleto">Nombre completo</label>><input type="text" id="reg__nombre" data-key-placeholder="nombre"></div>
+                <label data-key="correo">Correo electrónico</label><input type="email" id="reg__correo" placeholder="correo@gmail.com" data-key-placeholder="correoEjemplo">
+                <label data-key="contrasena">Contraseña</label><input type="password" id="reg__contrasena" placeholder="Mínimo 6 caracteres" data-key-placeholder="min6">
+                <label data-key="confirmarContrasena">Confirmar contraseña</label><input type="password" id="reg__confirmar" placeholder="Repite tu contraseña" data-key-placeholder="repetirPassword">
+                <button class="login__btn" id="btn__registro" onclick="registrarse()" data-key="crearCuenta">Crear Cuenta</button>
             </div>
 
             <!-- MFA -->
             <div id="mfa__form">
-                <h3>Verificación</h3>
-                <p class="subtitle">Simulacion de Segundo factor de autenticación</p>
-                <p class="mfa__info">Ingresa el código de verificación</p>
-                <div class="mfa__demo">🔐 Código de acceso:<strong id="codigo__visible">------</strong></div>
+                <h3 data-key="verificacion">Verificación</h3>
+                <p class="subtitle" data-key="mfaSimulacion">Simulación de Segundo factor de autenticación</p>
+                <p class="mfa__info" data-key="ingresaCodigo">Ingresa el código de verificación</p>
+                <div class="mfa__demo">🔐 <span data-key="codigoAcceso">Código de acceso:</span><strong id="codigo__visible">------</strong></div>
                 <div class="mfa__code__inputs">
                     <input type="text" maxlength="1" class="mfa__digit" id="d1" oninput="mfaAvanzar(this,'d2')">
                     <input type="text" maxlength="1" class="mfa__digit" id="d2" oninput="mfaAvanzar(this,'d3')">
@@ -73,19 +73,19 @@
                     <input type="text" maxlength="1" class="mfa__digit" id="d5" oninput="mfaAvanzar(this,'d6')">
                     <input type="text" maxlength="1" class="mfa__digit" id="d6" oninput="mfaAvanzar(this,null)">
                 </div>
-                <button class="login__btn" onclick="verificarMFA()">Verificar Código</button>
+                <button class="login__btn" data-key="verificarCodigo" onclick="verificarMFA()">Verificar Código</button>
                 <div class="login__links">
-                    <a onclick="reenviarCodigo()">Reenviar código</a> &nbsp;·&nbsp; <a onclick="mostrarLogin()">Volver</a>
+                    <a onclick="reenviarCodigo()" data-key="reenviarCodigo">Reenviar código</a><a onclick="mostrarLogin()" data-key="volver">Volver</a>
                 </div>
             </div>
 
             <!-- RECUPERAR -->
             <div id="recover__form">
-                <span class="back__link" onclick="mostrarLogin()">← Volver</span>
-                <h3>Recuperar Contraseña</h3>
+                <span class="back__link" onclick="mostrarLogin()" data-key="volver">← Volver</span>
+                <h3 data-key="recuperarContrasena">Recuperar Contraseña</h3>
                 <!-- <p class="subtitle">Senvío de un enlace a tu correo</p> -->
-                <div class="login__input"><label>Correo electrónico</label><input type="email" id="correo__recover" placeholder="tucorreo@email.com"></div>
-                <button class="login__btn" onclick="recuperarContrasena()">Enviar enlace</button>
+                <label data-key="correo">Correo electrónico</label><input type="email" id="correo__recover" placeholder="tucorreo@email.com" data-key-placeholder="correoEjemplo">
+                <button class="login__btn" onclick="recuperarContrasena()" data-key="enviarEnlace">Enviar enlace</button>
             </div>
         </div>
     </section>
