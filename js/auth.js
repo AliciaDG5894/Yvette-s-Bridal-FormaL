@@ -23,7 +23,7 @@ async function renderizarHeader() {
 
     if (!u) {
         authDiv.innerHTML = `<a href="login.html">Iniciar Sesión</a>`
-        if (offAuth) offAuth.innerHTML = `<a href="login.html">Iniciar Sesión</a>`
+        if (offAuth) offAuth.innerHTML = `<a href="login.html" data-key="sesion"></a>`
         return
     }
 
