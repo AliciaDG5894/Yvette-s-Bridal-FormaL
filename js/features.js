@@ -43,7 +43,7 @@ es: {
     nosotros: "Nosotros",
     contacto: "Contáctanos",
     nuevosProductos: "Nuevos Productos",
-    descripcionHero: "Descubre nuestra exclusiva selección de vestidos diseñados para hacer inolvidable tu día especial."
+    descripcionHero: "Descubreeee nuestra exclusiva selección de vestidos diseñados para hacer inolvidable tu día especial."
 },
 en: {
     nuevo: "New",
