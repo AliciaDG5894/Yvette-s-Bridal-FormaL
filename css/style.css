@@ -55,12 +55,14 @@ html {
    SWITCH DE IDIOMA - ESTILO ELEGANTE
 ================================= */
 
+
 .lang-switch {
     position: fixed;
-    top: 20px;
+    bottom: 80px; /* 👈 arriba del dark mode */
     right: 20px;
     z-index: 999;
     display: flex;
+    flex-direction: column;
     gap: 8px;
 }
 
@@ -70,8 +72,8 @@ html {
     font-weight: 600;
     padding: 6px 12px;
     border-radius: 20px;
-    border: 1px solid #d4af37; /* dorado elegante */
-    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #8a4731; /* dorado elegante */
+    background: rgb(255, 255, 255);
     color: #333;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -80,15 +82,22 @@ html {
 
 /* Hover elegante */
 .lang-btn:hover {
-    background: #d4af37;
-    color: #fff;
+    background: #8a4731;
+    color: #ffffff;
     box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
 }
 
 /* Botón activo */
 .lang-btn.active {
-    background: #d4af37;
+    background: #8a4731;
     color: white;
+}
+
+#dark-mode-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
 }
 
 h1,
