@@ -139,7 +139,7 @@ $(document).ready(function () {
         var $desc = $(this).prev('.product__desc');
         if ($desc.is(':visible')) {
             $desc.slideUp(200);
-            $(this).text('t.verDescripcion ▾');
+            $(this).text(t.verDescripcion);
         } else {
             $desc.slideDown(200);
             $(this).text('Ocultar ▴');
