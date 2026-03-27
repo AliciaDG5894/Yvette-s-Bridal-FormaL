@@ -2,52 +2,40 @@
    FEATURES.JS - Nuevas Funcionalidades
    ======================================== */
 
-// const translations = {
-//     es: {
-//         nuevo: "Nuevo",
-//         modoOscuro: "Modo Oscuro",
-//         modoClaro: "Modo Claro",
-//         verDescripcion: "Ver descripción ▾",
-//         ocultar: "Ocultar ▴",
-//         agregarProducto: "Agregar Producto",
-//         nombreProducto: "Nombre del producto",
-//         errorNombre: "El nombre es obligatorio.",
-//         eliminarProducto: "¿Eliminar este producto?",
-//         sinProductos: "Sin productos en ese rango.",
-//         ofertaDia: "Ver Oferta del Día"
-//     },
-//     en: {
-//         nuevo: "New",
-//         modoOscuro: "Dark Mode",
-//         modoClaro: "Light Mode",
-//         verDescripcion: "View description ▾",
-//         ocultar: "Hide ▴",
-//         agregarProducto: "Add Product",
-//         nombreProducto: "Product name",
-//         errorNombre: "Name is required.",
-//         eliminarProducto: "Delete this product?",
-//         sinProductos: "No products in this range.",
-//         ofertaDia: "View Deal of the Day"
-//     }
-// };
-// let lang = localStorage.getItem("lang") || "es";
-// const t = translations[lang];
+const translations = {
+    es: {
+        nuevo: "Nuevo",
+        modoOscuro: "Modo Oscuro",
+        modoClaro: "Modo Claro",
+        verDescripcion: "Ver descripción ▾",
+        ocultar: "Ocultar ▴",
+        agregarProducto: "Agregar Producto",
+        nombreProducto: "Nombre del producto",
+        errorNombre: "El nombre es obligatorio.",
+        eliminarProducto: "¿Eliminar este producto?",
+        sinProductos: "Sin productos en ese rango.",
+        ofertaDia: "Ver Oferta del Día"
+    },
+    en: {
+        nuevo: "New",
+        modoOscuro: "Dark Mode",
+        modoClaro: "Light Mode",
+        verDescripcion: "View description ▾",
+        ocultar: "Hide ▴",
+        agregarProducto: "Add Product",
+        nombreProducto: "Product name",
+        errorNombre: "Name is required.",
+        eliminarProducto: "Delete this product?",
+        sinProductos: "No products in this range.",
+        ofertaDia: "View Deal of the Day"
+    }
+};
+let lang = localStorage.getItem("lang") || "es";
+const t = translations[lang];
 
-// function changeLang(newLang){
-//     localStorage.setItem("lang", newLang);
-//     location.reload();
-// }
-
-function cambiarIdioma(lang) {
-    var interval = setInterval(function() {
-        var select = document.querySelector(".goog-te-combo");
-        
-        if (select) {
-            select.value = lang;
-            select.dispatchEvent(new Event("change"));
-            clearInterval(interval);
-        }
-    }, 500);
+function changeLang(newLang){
+    localStorage.setItem("lang", newLang);
+    location.reload();
 }
 
 $(document).ready(function () {
