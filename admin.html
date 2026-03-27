@@ -80,8 +80,8 @@
         <div class="modal__box">
             <h3 id="modal__titulo" data-key="nuevoProducto">Nuevo Producto</h3>
             <input type="hidden" id="prod__id">
-            <div class="modal__input"><label data-key="nombre">Nombre</label><input type="text" placeholder="Nombre del producto" data-key-placeholder="nombreProducto"></div>
-            <div class="modal__input"><label data-key="precio">Precio ($)</label><input type="number" placeholder="0.00" data-key-placeholder="precio"></div>
+            <div class="modal__input"><label data-key="nombre">Nombre</label><input id="prod__nombre" type="text" placeholder="Nombre del producto" data-key-placeholder="nombreProducto"></div>
+            <div class="modal__input"><label data-key="precio">Precio ($)</label><input id="prod__precio" type="number" placeholder="0.00" data-key-placeholder="precio"></div>
             <div class="modal__input"><label data-key="categoria">Categoría</label>
                 <select id="prod__categoria">
                     <option value="Boda" data-key="boda">Boda</option>
@@ -91,7 +91,7 @@
                 </select>
             </div>
             <div class="modal__input"><label data-key="imagenUrl">URL de imagen</label><input type="text" placeholder="img/product/..." data-key-placeholder="imagen"></div>
-            <div class="modal__input"><label data-key="descripcion">Descripción</label><textarea placeholder="Descripción breve..." data-key-placeholder="descripcion"></textarea></div>
+            <div class="modal__input"><label data-key="descripcion">Descripción</label><textarea id="prod__desc" data-key-placeholder="descripcion"></textarea></div>
             <div class="modal__actions">
                 <button class="btn__cancel" data-key="cancelar" onclick="cerrarModal()">Cancelar</button>
                 <button class="btn__primary" data-key="guardar" onclick="guardarProducto()">Guardar</button>
@@ -122,8 +122,7 @@
             document.querySelectorAll('.admin__nav__item').forEach(n=>n.classList.remove('active'))
             document.getElementById('sec__'+id).classList.add('active')
             event.currentTarget.classList.add('active')
-            const titles={dashboard:'Dashboard',productos:'Productos',usuarios:'Usuarios',mensajes:'Mensajes de Contacto'}
-            document.getElementById('page__title').textContent=titles[id]
+            document.getElementById('page__title').textContent = t[id];
             if(id==='productos') cargarProductos()
             if(id==='usuarios')  cargarUsuarios()
             if(id==='mensajes')  cargarMensajes()
