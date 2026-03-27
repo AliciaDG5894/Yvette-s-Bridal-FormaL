@@ -468,6 +468,10 @@ function changeLang(newLang){
 
 $(document).ready(function () {
 
+    if (t.tituloAdmin) {
+    document.title = t.tituloAdmin;
+    }
+
     if ($('title').data('key')) {
     const key = $('title').data('key');
     if (t[key]) {
