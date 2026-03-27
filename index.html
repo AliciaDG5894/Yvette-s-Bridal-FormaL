@@ -72,8 +72,6 @@
                             <li><a href="./Nosotros.html" data-key="nosotros">Nosotros</a></li>
                             <li><a href="./contact.html" data-key="contacto">Contactanos</a></li>
                         </ul>
-                        <!-- <button onclick="changeLang('es')">ES</button>
-                        <button onclick="changeLang('en')">EN</button> -->
                     </nav>
                 </div>
                 <div class="col-lg-3">
@@ -110,10 +108,9 @@
                         data-setbg="img/categories/inicio2.png">
                         <div class="categories__text">
                             <h1>Yvette's</h1>
-                            <p>Descubre nuestra exclusiva selección de vestidos
-                            diseñados para hacer inolvidable tu día especial.</p>
+                            <p data-key="descripcionHero">Descubre nuestra exclusiva selección de vestidos diseñados para hacer inolvidable tu día especial.</p>
                             <!-- BOTÓN INTERACTIVO DOM - Inicio -->
-                            <button id="btn-oferta-dia" class="hero-cta-btn">
+                            <button id="btn-oferta-dia" class="hero-cta-btn" data-key="verOferta">
                                 Ver Oferta del Día
                             </button>
                         </div>
@@ -135,11 +132,11 @@
                 </div>
                 <div class="col-lg-8 col-md-8">
                     <ul class="filter__controls">
-                        <li class="active" data-filter="*">Todo</li>
-                        <li data-filter=".women">Boda</li>
-                        <li data-filter=".men">Prom</li>
-                        <li data-filter=".kid">Esmoquin</li>
-                        <li data-filter=".accessories">Accesorios</li>
+                        <li class="active" data-filter="*" data-key="todos">Todo</li>
+                        <li data-filter=".women" data-key="boda">Boda</li>
+                        <li data-filter=".men" data-key="prom">Prom</li>
+                        <li data-filter=".kid" data-key="esmoquin">Esmoquin</li>
+                        <li data-filter=".accessories" data-key="accesorios">Accesorios</li>
                     </ul>
                 </div>
             </div>
@@ -147,14 +144,14 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 mix women">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="img/product/V1.webp">
-                            <div class="label new">Nuevo</div>
+                            <div class="label new" data-key="nuevo">Nuevo</div>
                             <ul class="product__hover">
                                 <li><a href="img/product/V1.webp" class="image-popup"><span class="arrow_expand"></span></a></li>
                                 <li><a href="#"><span class="icon_bag_alt"></span></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Vestido de encaje</a></h6>
+                            <h6><a href="#" data-key="vestidoEnc">Vestido de encaje</a></h6>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -175,7 +172,7 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Vestido verde</a></h6>
+                            <h6><a href="#" data-key="vestidoVerd">Vestido verde</a></h6>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -196,7 +193,7 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Brazalete</a></h6>
+                            <h6><a href="#" data-key="brazaletes">Brazalete</a></h6>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -217,7 +214,7 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Vestido negro</a></h6>
+                            <h6><a href="#" data-key="vestidoNeg">Vestido negro</a></h6>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -238,7 +235,7 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Vestido plateado</a></h6>
+                            <h6><a href="#" data-key="vestidoPlateado">Vestido plateado</a></h6>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -259,7 +256,7 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Esmoquin etiqueta</a></h6>
+                            <h6><a href="#" data-key="esmoquinEtiqueta">Esmoquin etiqueta</a></h6>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -274,14 +271,14 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 mix women ">
                     <div class="product__item sale">
                         <div class="product__item__pic set-bg" data-setbg="img/product/V2.webp">
-                            <div class="label sale">Oferta</div>
+                            <div class="label sale" data-key="oferta">Oferta</div>
                             <ul class="product__hover">
                                 <li><a href="img/product/V2.webp" class="image-popup"><span class="arrow_expand"></span></a></li>
                                 <li><a href="#"><span class="icon_bag_alt"></span></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Vestido de manga larga</a></h6>
+                            <h6><a href="#" data-key="vestidoMangaLarga">Vestido de manga larga</a></h6>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -302,7 +299,7 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Vestido asimétrico</a></h6>
+                            <h6><a href="#" data-key="vestidoAsimetrico">Vestido asimétrico</a></h6>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -323,7 +320,7 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Vestido azul</a></h6>
+                            <h6><a href="#" data-key="vestidoAzul">Vestido azul</a></h6>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -338,14 +335,14 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 mix women">
                     <div class="product__item sale">
                         <div class="product__item__pic set-bg" data-setbg="img/product/V4.webp">
-                            <div class="label">Oferta</div>
+                            <div class="label" data-key="oferta">Oferta</div>
                             <ul class="product__hover">
                                 <li><a href="img/product/V4.webp" class="image-popup"><span class="arrow_expand"></span></a></li>
                                 <li><a href="#"><span class="icon_bag_alt"></span></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Vestido de raso</a></h6>
+                            <h6><a href="#" data-key="vestidoRaso">Vestido de raso</a></h6>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -370,20 +367,20 @@
                     <div class="banner__slider owl-carousel">
                         <div class="banner__item">
                             <div class="banner__text">
-                                <h1>Favoritos de la novia</h1>
-                                <a href="#">Comprar ahora</a>
+                                <h1 data-key="favNovia">Favoritos de la novia</h1>
+                                <a href="#" data-key="comprarAhora">Comprar ahora</a>
                             </div>
                         </div>
                         <div class="banner__item">
                             <div class="banner__text">
-                                <h1>Favoritos de la novia</h1>
-                                <a href="#">Comprar ahora</a>
+                                <h1 data-key="favNovia">Favoritos de la novia</h1>
+                                <a href="#" data-key="comprarAhora">Comprar ahora</a>
                             </div>
                         </div>
                         <div class="banner__item">
                             <div class="banner__text">
-                                <h1>Favoritos de la novia</h1>
-                                <a href="#">Comprar ahora</a>
+                                <h1 data-key="favNovia">Favoritos de la novia</h1>
+                                <a href="#" data-key="comprarAhora">Comprar ahora</a>
                             </div>
                         </div>
                     </div>
@@ -438,14 +435,14 @@
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="trend__content">
                         <div class="section-title">
-                            <h4>Tendencia</h4>
+                            <h4 data-key="tendencia">Tendencia</h4>
                         </div>
                         <div class="trend__item">
                             <div class="trend__item__pic">
                                 <img src="img/trend/ht-1.png" alt="">
                             </div>
                             <div class="trend__item__text">
-                                <h6>Vestido asimetrico</h6>
+                                <h6 data-key="vestidoAsimetrico">Vestido asimetrico</h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -461,7 +458,7 @@
                                 <img src="img/trend/ht-2.png" alt="">
                             </div>
                             <div class="trend__item__text">
-                                <h6>Brazalete</h6>
+                                <h6 data-key="brazaletes">Brazalete</h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -477,7 +474,7 @@
                                 <img src="img/trend/ht-3.png" alt="">
                             </div>
                             <div class="trend__item__text">
-                                <h6>Vestido de raso</h6>
+                                <h6 data-key="vestidoRaso">Vestido de raso</h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -500,7 +497,7 @@
                                 <img src="img/trend/bs-1.png" alt="">
                             </div>
                             <div class="trend__item__text">
-                                <h6>Vestido azul</h6>
+                                <h6 data-key="vestidoAzul">Vestido azul</h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -516,7 +513,7 @@
                                 <img src="img/trend/bs-2.png" alt="">
                             </div>
                             <div class="trend__item__text">
-                                <h6>Vesido verde</h6>
+                                <h6 data-key="vestidoVerd">Vesido verde</h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -532,7 +529,7 @@
                                 <img src="img/trend/bs-3.jpg" alt="">
                             </div>
                             <div class="trend__item__text">
-                                <h6>Bolso tejido</h6>
+                                <h6 data-key="bolso">Bolso tejido</h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -555,7 +552,7 @@
                                 <img src="img/trend/f-1.png" alt="">
                             </div>
                             <div class="trend__item__text">
-                                <h6>Vestido largo</h6>
+                                <h6 data-key="vestidoLargo">Vestido largo</h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -571,7 +568,7 @@
                                 <img src="img/trend/f-2.jpg" alt="">
                             </div>
                             <div class="trend__item__text">
-                                <h6>Aretes de concha</h6>
+                                <h6 data-key="aretes">Aretes de concha</h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -587,7 +584,7 @@
                                 <img src="img/trend/f-3.jpg" alt="">
                             </div>
                             <div class="trend__item__text">
-                                <h6>Bolso amarrillo</h6>
+                                <h6 data-key="bolsoAmarillo">Bolso amarrillo</h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -617,9 +614,9 @@
                 <div class="col-lg-6 p-0">
                     <div class="discount__text">
                         <div class="discount__text__title">
-                            <span>Descuento</span>
-                            <h2>Primaver 2026</h2>
-                            <h5><span>Oferta</span> 50%</h5>
+                            <span data-key="discount">Descuento</span>
+                            <h2 data-key="primavera">Primaver 2026</h2>
+                            <h5><span data-key="oferta">Oferta</span> 50%</h5>
                         </div>
                         <div class="discount__countdown" id="countdown-time">
                             <div class="countdown__item">
@@ -639,50 +636,13 @@
                                 <p>Segundos</p>
                             </div>
                         </div>
-                        <a href="#">Comprar Ahora</a>
+                        <a href="#" data-key="comprarAhora">Comprar Ahora</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Discount Section End -->
-
-    <!-- Services Section Begin -->
-    <section class="services spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="services__item">
-                        <i class="fa fa-car"></i>
-                        <h6>Envío gratuito</h6>
-                        <p>Para todoslos pedidos superiores a $99</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="services__item">
-                        <i class="fa fa-money"></i>
-                        <h6>Garantía de devolución del dinero</h6>
-                        <p>Si el producto tiene algún problema</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="services__item">
-                        <i class="fa fa-support"></i>
-                        <h6>Asistencia en línea 24/7</h6>
-                        <p>Asistencia dedicada</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="services__item">
-                        <i class="fa fa-headphones"></i>
-                        <h6>Pago seguro</h6>
-                        <p>Pago 100 % seguro</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Services Section End -->
 
     <!-- Instagram Begin -->
     <div class="instagram">
@@ -750,7 +710,6 @@
                     <div class="footer__logo">
                         <a href="./index.html"><img src="img/log1.png" alt=""></a>
                     </div>
-                    <!-- <p data-key="descripcionHero">Descubre nuestra exclusiva selección de vestidos diseñados para hacer inolvidable tu día especial.</p> -->
                     <p data-key="descripcionHero">
                         Descubre nuestra exclusiva selección de vestidos...
                         </p>
@@ -765,32 +724,32 @@
             </div>
             <div class="col-lg-2 col-md-3 col-sm-5">
                 <div class="footer__widget">
-                    <h6>Enlaces rápidos</h6>
+                    <h6 data-key="enlacesRapidos">Enlaces rápidos</h6>
                     <ul>
-                        <li><a href="#">Nosotros</a></li>
-                        <li><a href="#">Blogs</a></li>
-                        <li><a href="#">Contacto</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#" data-key="nosotros">Nosotros</a></li>
+                        <li><a href="#" data-key="blogs">Blogs</a></li>
+                        <li><a href="#" data-key="contacto">Contacto</a></li>
+                        <li><a href="#" data-key="faq">FAQ</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-4">
                 <div class="footer__widget">
-                    <h6>Cuentas</h6>
+                    <h6 data-key="cuentas">Cuentas</h6>
                     <ul>
-                        <li><a href="#">Mi cuenta</a></li>
-                        <li><a href="#">Pedidos</a></li>
-                        <li><a href="#">Compras</a></li>
-                        <li><a href="#">Lista de deseos</a></li>
+                        <li><a href="#" data-key="miCuenta">Mi cuenta</a></li>
+                        <li><a href="#" data-key="pedidos">Pedidos</a></li>
+                        <li><a href="#" data-key="compras">Compras</a></li>
+                        <li><a href="#" data-key="listaDeseos">Lista de deseos</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-4 col-md-8 col-sm-8">
                 <div class="footer__newslatter">
-                    <h6>Boletin Informativo</h6>
+                    <h6 data-key="boletin">Boletín Informativo</h6>
                     <form action="#">
                         <input type="text" placeholder="Email">
-                        <button type="submit" class="site-btn">Subscribete</button>
+                        <button type="submit" class="site-btn" data-key="suscribete">Subscribete</button>
                     </form>
                     <div class="footer__social">
                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -811,7 +770,7 @@
     <div class="h-100 d-flex align-items-center justify-content-center">
         <div class="search-close-switch">+</div>
         <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Busca aquí.....">
+            <input type="text" id="search-input" data-key-placeholder="buscar" placeholder="Busca aquí.....">
         </form>
     </div>
 </div>
