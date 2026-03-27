@@ -98,6 +98,15 @@ function changeLang(newLang){
 
 $(document).ready(function () {
 
+        setTimeout(() => {
+        $('[data-key]').each(function(){
+            const key = $(this).data('key');
+            if(t[key]){
+                $(this).text(t[key]);
+            }
+        });
+    }, 100);
+
     $('[data-key]').each(function(){const key = $(this).data('key');
         if(t[key]){
             $(this).text(t[key]);
