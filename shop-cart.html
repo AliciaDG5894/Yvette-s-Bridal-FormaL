@@ -121,11 +121,11 @@
                 const { data:u } = await sb.from('usuarios').select('nombre,rol').eq('id',session.user.id).single()
                 const nombre = u?.nombre?.split(' ')[0]||'Mi cuenta'
                 if (u?.rol==='admin') {
-                    if(authDiv) authDiv.innerHTML=`<a href="admin.html" style="margin-right:10px;font-weight:700;">Panel Admin</a><a href="#" onclick="cerrarSesion()" style="color:#ca1515;font-weight:700;">Cerrar Sesión</a>`
+                    if(authDiv) authDiv.innerHTML=`<a href="admin.html" style="margin-right:10px;font-weight:700;">Panel Admin</a><a href="#" onclick="cerrarSesion()" style="color:#ca1515;font-weight:700;">${t.cerrarSesion}</a>`
                 } else {
-                    if(authDiv) authDiv.innerHTML=`<span style="font-size:13px;font-weight:600;margin-right:10px;">Hola, ${nombre}</span><a href="#" onclick="cerrarSesion()" style="color:#ca1515;font-weight:700;">Cerrar Sesión</a>`
+                    if(authDiv) authDiv.innerHTML=`<span style="font-size:13px;font-weight:600;margin-right:10px;">Hola, ${nombre}</span><a href="#" onclick="cerrarSesion()" style="color:#ca1515;font-weight:700;">${t.cerrarSesion}</a>`
                 }
-                if(offAuth) offAuth.innerHTML=`<a href="#" onclick="cerrarSesion()">Cerrar Sesión</a>`
+                if(offAuth) offAuth.innerHTML=`<a href="#" onclick="cerrarSesion()">${t.cerrarSesion}</a>`
             }
 
             cargarCarrito(session)
