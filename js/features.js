@@ -142,7 +142,7 @@ $(document).ready(function () {
             $(this).text(t.verDescripcion);
         } else {
             $desc.slideDown(200);
-            $(this).text('Ocultar ▴');
+            $(this).text(t.ocultar);
         }
     });
 
@@ -153,7 +153,7 @@ $(document).ready(function () {
     ============================================ */
     if ($('.property__gallery').length || $('.shop .row .col-lg-9').length) {
 
-        var $addSection = $('<div class="add-product-section container"><button class="btn-add-product">+ Agregar Producto</button></div>');
+        var $addSection = $('<div class="add-product-section container"><button class="btn-add-product">+t.agregarProducto+</button></div>');
 
         if ($('.property__gallery').length) {
             $('.product.spad').append($addSection);
@@ -179,7 +179,7 @@ $(document).ready(function () {
                 </select>
                 <span class="error-msg" id="err-cat"></span>
                 <input type="text" id="new-product-img" placeholder="URL de imagen (opcional)" />
-                <button class="btn-submit-product">Agregar Producto</button>
+                <button class="btn-submit-product">t.agregarProducto</button>
             </div>
         </div>`;
         $('body').append(modalHTML);
