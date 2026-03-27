@@ -555,6 +555,10 @@ $(document).ready(function () {
     /* ============================================
        1. MODO OSCURO CON BOTÓN
     ============================================ */
+
+    // 🚫 NO mostrar en admin
+if (!$('body').hasClass('admin-page')) {
+
     var darkModeBtn = $('<button id="dark-mode-btn"><span id="dm-icon">🌙</span> <span id="dm-label">Modo Oscuro</span></button>');
     $('body').append(darkModeBtn);
 
@@ -569,6 +573,7 @@ $(document).ready(function () {
         $('body').toggleClass('dark-mode');
         darkMode = $('body').hasClass('dark-mode');
         localStorage.setItem('darkMode', darkMode);
+
         if (darkMode) {
             $('#dm-icon').text('☀️');
             $('#dm-label').text(t.modoClaro);
@@ -577,6 +582,31 @@ $(document).ready(function () {
             $('#dm-label').text(t.modoOscuro);
         }
     });
+
+}
+
+    // var darkModeBtn = $('<button id="dark-mode-btn"><span id="dm-icon">🌙</span> <span id="dm-label">Modo Oscuro</span></button>');
+    // $('body').append(darkModeBtn);
+
+    // var darkMode = localStorage.getItem('darkMode') === 'true';
+    // if (darkMode) {
+    //     $('body').addClass('dark-mode');
+    //     $('#dm-icon').text('☀️');
+    //     $('#dm-label').text(t.modoClaro);
+    // }
+
+    // $('#dark-mode-btn').on('click', function () {
+    //     $('body').toggleClass('dark-mode');
+    //     darkMode = $('body').hasClass('dark-mode');
+    //     localStorage.setItem('darkMode', darkMode);
+    //     if (darkMode) {
+    //         $('#dm-icon').text('☀️');
+    //         $('#dm-label').text(t.modoClaro);
+    //     } else {
+    //         $('#dm-icon').text('🌙');
+    //         $('#dm-label').text(t.modoOscuro);
+    //     }
+    // });
 
 
     /* ============================================
