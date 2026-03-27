@@ -227,7 +227,11 @@ es: {
     noUsuarios: "No hay usuarios.",
     noMensajes: "No hay mensajes.",
     errorCampos: "Nombre y precio son requeridos.",
-    confirmarEliminar: "¿Eliminar este producto?"
+    confirmarEliminar: "¿Eliminar este producto?",
+    ingresaCodigoArriba: "Ingresa el código que aparece arriba.",
+    ingresa6: "Ingresa los 6 dígitos.",
+    accesoOK: "✅ Acceso concedido. Redirigiendo...",
+    codigoIncorrecto: "❌ Código incorrecto. Acceso denegado."
 },
 en: {
     dashboard:'Dashboard',
@@ -455,7 +459,11 @@ en: {
     noUsuarios: "No users.",
     noMensajes: "No messages.",
     errorCampos: "Name and price are required.",
-    confirmarEliminar: "Delete this product?"
+    confirmarEliminar: "Delete this product?",
+    ingresaCodigoArriba: "Enter the code shown above.",
+    ingresa6: "Enter the 6 digits.",
+    accesoOK: "✅ Access granted. Redirecting...",
+    codigoIncorrecto: "❌ Incorrect code. Access denied."
 }
 };
 let lang = localStorage.getItem("lang") || "es";
@@ -468,6 +476,10 @@ function changeLang(newLang){
 
 $(document).ready(function () {
 
+    $(document).ready(function () {
+    aplicarTraduccion();
+    });
+
     if (t.tituloAdmin) {
     document.title = t.tituloAdmin;
     }
@@ -479,17 +491,21 @@ $(document).ready(function () {
     }
     }
 
-    $('[data-key]').each(function(){const key = $(this).data('key');
+    function aplicarTraduccion() {
+    $('[data-key]').each(function(){
+        const key = $(this).data('key');
         if(t[key]){
             $(this).text(t[key]);
         }
     });
+
     $('[data-key-placeholder]').each(function(){
-    const key = $(this).data('key-placeholder');
-    if(t[key]){
-        $(this).attr('placeholder', t[key]);
-    }
+        const key = $(this).data('key-placeholder');
+        if(t[key]){
+            $(this).attr('placeholder', t[key]);
+        }
     });
+}
 
     let savedProducts = JSON.parse(localStorage.getItem("products")) || [];
 
