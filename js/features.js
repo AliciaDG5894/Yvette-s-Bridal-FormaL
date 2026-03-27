@@ -3,32 +3,76 @@
    ======================================== */
 
 const translations = {
-    es: {
-        nuevo: "Nuevo",
-        modoOscuro: "Modo Oscuro",
-        modoClaro: "Modo Claro",
-        verDescripcion: "Ver descripción ▾",
-        ocultar: "Ocultar ▴",
-        agregarProducto: "Agregar Producto",
-        nombreProducto: "Nombre del producto",
-        errorNombre: "El nombre es obligatorio.",
-        eliminarProducto: "¿Eliminar este producto?",
-        sinProductos: "Sin productos en ese rango.",
-        ofertaDia: "Ver Oferta del Día"
-    },
-    en: {
-        nuevo: "New",
-        modoOscuro: "Dark Mode",
-        modoClaro: "Light Mode",
-        verDescripcion: "View description ▾",
-        ocultar: "Hide ▴",
-        agregarProducto: "Add Product",
-        nombreProducto: "Product name",
-        errorNombre: "Name is required.",
-        eliminarProducto: "Delete this product?",
-        sinProductos: "No products in this range.",
-        ofertaDia: "View Deal of the Day"
-    }
+es: {
+    nuevo: "Nuevo",
+    modoOscuro: "Modo Oscuro",
+    modoClaro: "Modo Claro",
+    verDescripcion: "Ver descripción ▾",
+    ocultar: "Ocultar ▴",
+    agregarProducto: "Agregar Producto",
+    nombreProducto: "Nombre del producto",
+    precioPlaceholder: "Precio (ej: 59.0)",
+    seleccionarCategoria: "-- Selecciona categoría --",
+    todos:"Todos",
+    boda: "Boda",
+    prom: "Prom",
+    esmoquin: "Esmoquin",
+    accesorios: "Accesorios",
+    urlImagen: "URL de imagen (opcional)",
+    errorNombre: "El nombre es obligatorio.",
+    errorPrecio: "Ingresa un precio válido.",
+    errorCategoria: "Selecciona una categoría.",
+    eliminarProducto: "¿Eliminar este producto?",
+    sinProductos: "Sin productos en ese rango.",
+    productosEncontrados: "productos encontrados.",
+    productoEncontrado: "producto encontrado.",
+    ofertaDia: "Ver Oferta del Día",
+    cerrarOferta: "Cerrar Oferta",
+    mensajeExito: "✅ ¡Mensaje enviado correctamente! Nos pondremos en contacto pronto.",
+    errorNombreContacto: "Por favor ingresa tu nombre completo (mínimo 2 caracteres).",
+    errorCorreo: "Ingresa un correo electrónico válido (ej: correo@ejemplo.com).",
+    errorMensaje: "El mensaje debe tener al menos 10 caracteres.",
+    favoritos: "Mis Favoritos",
+    meGusta: "Me gusta",
+    agregadoFav: "añadido a favoritos",
+    quitadoFav: "quitado de favoritos",
+    productoNuevoDesc: "Producto recién agregado. Disponible en todas las tallas. Consulta disponibilidad en tienda."
+},
+en: {
+    nuevo: "New",
+    modoOscuro: "Dark Mode",
+    modoClaro: "Light Mode",
+    verDescripcion: "View description ▾",
+    ocultar: "Hide ▴",
+    agregarProducto: "Add Product",
+    nombreProducto: "Product name",
+    precioPlaceholder: "Price (e.g: 59.0)",
+    seleccionarCategoria: "-- Select category --",
+    todos:"All",
+    boda: "Wedding",
+    prom: "Prom",
+    esmoquin: "Tuxedo",
+    accesorios: "Accessories",
+    urlImagen: "Image URL (optional)",
+    errorNombre: "Name is required.",
+    errorPrecio: "Enter a valid price.",
+    errorCategoria: "Select a category.",
+    eliminarProducto: "Delete this product?",
+    sinProductos: "No products in this range.",
+    productosEncontrados: "products found.",
+    productoEncontrado: "product found.",
+    ofertaDia: "View Deal of the Day",
+    cerrarOferta: "Close Deal",
+    mensajeExito: "✅ Message sent successfully! We will contact you soon.",
+    errorNombreContacto: "Please enter your full name (at least 2 characters).",
+    errorCorreo: "Enter a valid email (e.g: email@example.com).",
+    errorMensaje: "Message must be at least 10 characters.",
+    favoritos: "My Favorites",
+    meGusta: "Like",
+    agregadoFav: "added to favorites",
+    quitadoFav: "removed from favorites",
+    productoNuevoDesc: "Newly added product. Available in all sizes. Check store availability."
+}
 };
 let lang = localStorage.getItem("lang") || "es";
 const t = translations[lang];
@@ -153,7 +197,7 @@ $(document).ready(function () {
     ============================================ */
     if ($('.property__gallery').length || $('.shop .row .col-lg-9').length) {
 
-        var $addSection = $('<div class="add-product-section container"><button class="btn-add-product">t.agregarProducto</button></div>');
+        var $addSection = $('<div class="add-product-section container"><button class="btn-add-product">'+t.agregarProducto+'</button></div>');
 
         if ($('.property__gallery').length) {
             $('.product.spad').append($addSection);
@@ -165,21 +209,21 @@ $(document).ready(function () {
         <div id="add-product-overlay">
             <div class="add-product-modal">
                 <span class="modal-close">&times;</span>
-                <h4>Agregar Nuevo Producto</h4>
-                <input type="text" id="new-product-name" placeholder="Nombre del producto" />
+                <h4>${t.agregarProducto}</h4>
+                <input type="text" id="new-product-name" placeholder="${t.nombreProducto}" />
                 <span class="error-msg" id="err-name"></span>
-                <input type="text" id="new-product-price" placeholder="Precio (ej: 59.0)" />
+                <input type="text" id="new-product-price" placeholder="${t.precioPlaceholder}" />
                 <span class="error-msg" id="err-price"></span>
                 <select id="new-product-category">
-                    <option value="">-- Selecciona categoría --</option>
-                    <option value="women">Boda</option>
-                    <option value="men">Prom</option>
-                    <option value="kid">Esmoquin</option>
-                    <option value="accessories">Accesorios</option>
+                    <option value="">${t.seleccionarCategoria}</option>
+                    <option value="women">${t.boda}</option>
+                    <option value="men">${t.prom}</option>
+                    <option value="kid">${t.esmoquin}</option>
+                    <option value="accessories">${t.accesorios}</option>
                 </select>
                 <span class="error-msg" id="err-cat"></span>
-                <input type="text" id="new-product-img" placeholder="URL de imagen (opcional)" />
-                <button class="btn-submit-product">${t.agregarProducto}</button>
+                <input type="text" id="new-product-img" placeholder="${t.urlImagen}" />
+                <button class="btn-submit-product">'t.agregarProducto'</button>
             </div>
         </div>`;
         $('body').append(modalHTML);
@@ -205,17 +249,17 @@ $(document).ready(function () {
             $('#new-product-name, #new-product-price, #new-product-category').removeClass('field-error');
 
             if (!name) {
-                $('#err-name').text('El nombre es obligatorio.');
+                $('#err-name').text(t.errorNombre);
                 $('#new-product-name').addClass('field-error');
                 valid = false;
             }
             if (!price || isNaN(parseFloat(price))) {
-                $('#err-price').text('Ingresa un precio válido.');
+                $('#err-price').text(t.errorPrecio);
                 $('#new-product-price').addClass('field-error');
                 valid = false;
             }
             if (!cat) {
-                $('#err-cat').text('Selecciona una categoría.');
+                $('#err-cat').text(t.errorCategoria);
                 $('#new-product-category').addClass('field-error');
                 valid = false;
             }
@@ -269,8 +313,8 @@ $(document).ready(function () {
             }
 
             // Añadir descripción al nuevo producto
-            var $newDesc = $('<p class="product__desc">Producto recién agregado. Disponible en todas las tallas. Consulta disponibilidad en tienda.</p>');
-            var $newBtn = $('<button class="btn-mostrar-mas">t.verDescripcion ▾</button>');
+            var $newDesc = $('<p class="product__desc">'+t.productoNuevoDesc+'</p>');
+            var $newBtn = $('<button class="btn-mostrar-mas">'+t.verDescripcion+'</button>');
             $newProduct.find('.product__item__text').append($newDesc).append($newBtn);
 
             $newProduct.slideDown(400);
@@ -334,7 +378,7 @@ $(document).ready(function () {
         $nameInput.after('<span class="error-msg" id="err-contact-name"></span>');
         $emailInput.after('<span class="error-msg" id="err-contact-email"></span>');
         $msgInput.after('<span class="error-msg" id="err-contact-msg"></span>');
-        $form.append('<div class="success-msg" id="contact-success">✅ ¡Mensaje enviado correctamente! Nos pondremos en contacto pronto.</div>');
+        $form.append('<div class="success-msg" id="contact-success">'+t.mensajeExito+'</div>');
 
         $submitBtn.on('click', function (e) {
             e.preventDefault();
@@ -350,17 +394,17 @@ $(document).ready(function () {
             $('#contact-success').hide();
 
             if (!name || name.length < 2) {
-                $('#err-contact-name').text('Por favor ingresa tu nombre completo (mínimo 2 caracteres).');
+                $('#err-contact-name').text(t.errorNombreContacto);
                 $nameInput.addClass('field-error');
                 valid = false;
             }
             if (!email || !emailRegex.test(email)) {
-                $('#err-contact-email').text('Ingresa un correo electrónico válido (ej: correo@ejemplo.com).');
+                $('#err-contact-email').text(t.errorCorreo);
                 $emailInput.addClass('field-error');
                 valid = false;
             }
             if (!msg || msg.length < 10) {
-                $('#err-contact-msg').text('El mensaje debe tener al menos 10 caracteres.');
+                $('#err-contact-msg').text(t.errorMensaje);
                 $msgInput.addClass('field-error');
                 valid = false;
             }
@@ -383,11 +427,11 @@ $(document).ready(function () {
         // Agregar botones de filtro rápido arriba de los productos
         var filterHTML = `
         <div class="category-filter-btns">
-            <button class="cat-filter-btn active" data-cat="all">Todos</button>
-            <button class="cat-filter-btn" data-cat="boda">Boda</button>
-            <button class="cat-filter-btn" data-cat="prom">Prom</button>
-            <button class="cat-filter-btn" data-cat="esmoquin">Esmoquin</button>
-            <button class="cat-filter-btn" data-cat="accesorios">Accesorios</button>
+            <button class="cat-filter-btn active" data-cat="all">${t.todos}</button>
+            <button class="cat-filter-btn" data-cat="boda">${t.boda}</button>
+            <button class="cat-filter-btn" data-cat="prom">${t.prom}</button>
+            <button class="cat-filter-btn" data-cat="esmoquin">${t.esmoquin}</button>
+            <button class="cat-filter-btn" data-cat="accesorios">${t.accesorios}</button>
         </div>`;
 
         $('.shop .col-lg-9 .row').before(filterHTML);
@@ -492,9 +536,9 @@ $(document).ready(function () {
 
             var $result = $('#price-filter-result');
             if (visibles === 0) {
-                $result.text('Sin productos en ese rango.').addClass('active');
+                $result.text(t.sinProductos).addClass('active');
             } else {
-                $result.text(visibles + ' producto' + (visibles !== 1 ? 's' : '') + ' encontrado' + (visibles !== 1 ? 's' : '') + '.').addClass('active');
+                $result.text(visibles + ' ' + (visibles !== 1 ? t.productosEncontrados : t.productoEncontrado)).addClass('active');
             }
 
             // Mostrar botón limpiar
@@ -577,10 +621,10 @@ $(document).ready(function () {
         var $sec = $('#seccion-destacado');
         if ($sec.is(':visible')) {
             $sec.slideUp(400);
-            $(this).html('<span>🎁</span> Ver Oferta del Día');
+            $(this).html('<span>🎁</span> ' + t.ofertaDia);
         } else {
             $sec.slideDown(500);
-            $(this).html('<span>✖</span> Cerrar Oferta');
+            $(this).html('<span>✖</span> ' + t.cerrarOferta);
             $('html, body').animate({ scrollTop: $sec.offset().top - 80 }, 500);
         }
     });
@@ -635,7 +679,7 @@ $(document).ready(function () {
     }
 
     // Crear elementos persistentes
-    $('body').append('<div class="wishlist-badge" id="wishlist-badge">❤️ Mis Favoritos <span class="wl-count" id="wl-count">0</span></div>');
+    $('body').append('<div class="wishlist-badge" id="wishlist-badge">❤️ '+t.favoritos+' <span class="wl-count" id="wl-count">0</span></div>');
     $('body').append('<div class="toast-notif" id="toast-notif"></div>');
 
     var wishlistCount = parseInt(localStorage.getItem('wishlistCount') || '0');
@@ -653,7 +697,7 @@ $(document).ready(function () {
             heartIcon +
             '<span class="like-count">' + count + '</span>' +
             '</button>' +
-            '<span style="font-size:11px;color:#999;font-family:Montserrat,sans-serif;">Me gusta</span>' +
+            '<span style="font-size:11px;color:#999;font-family:Montserrat,sans-serif;">'+t.meGusta+'</span>' +
             '</div>'
         );
         $(this).append($likeWrap);
@@ -681,7 +725,7 @@ $(document).ready(function () {
             $('#wl-count').text(wishlistCount);
             $('#wishlist-badge').addClass('pop');
             setTimeout(function () { $('#wishlist-badge').removeClass('pop'); }, 400);
-            showToast('❤️ "' + productName + '" añadido a favoritos');
+            showToast('❤️ "' + productName + '" ' + t.agregadoFav);
         } else {
             // Quitar like
             $btn.html('🤍<span class="like-count">' + (count - 1) + '</span>');
@@ -691,7 +735,7 @@ $(document).ready(function () {
             wishlistCount = Math.max(0, wishlistCount - 1);
             localStorage.setItem('wishlistCount', wishlistCount);
             $('#wl-count').text(wishlistCount);
-            showToast('🤍 "' + productName + '" quitado de favoritos');
+            showToast('🤍 "' + productName + '" ' + t.quitadoFav);
         }
     });
 
