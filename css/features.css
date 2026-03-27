@@ -758,7 +758,7 @@ body.fuente-extra label { font-size: 1.2em !important; }
 /* Widget flotante de accesibilidad */
 #acc-widget {
     position: fixed;
-    bottom: 30px;
+    bottom: 70px;
     left: 20px;
     z-index: 9999;
     font-family: 'Montserrat', sans-serif;
