@@ -138,11 +138,11 @@
                             <div class="contact__form">
                                 <h5 data-key="enviarMensaje">Enviar mensaje</h5>
                                 <form action="#">
-                                <input type="text" id="contact__nombre" placeholder="Nombre" data-key-placeholder="nombre">
-                                <input type="text" id="contact__correo" placeholder="Correo" data-key-placeholder="correo">
-                                <textarea id="contact__mensaje" placeholder="Mensaje" data-key-placeholder="mensaje"></textarea>
+                                <input type="text" id="contact__nombre" placeholder="Nombre" data-key="nombre" data-key-placeholder="nombre">
+                                <input type="text" id="contact__correo" placeholder="Correo" data-key="correo" placeholder="correo">
+                                <textarea id="contact__mensaje" placeholder="Mensaje" data-key="mensaje" placeholder="mensaje"></textarea>
                                 <div id="contact__msg" style="padding:10px 14px;border-radius:4px;font-size:12px;font-weight:600;margin:10px 0;display:none;font-family:Montserrat,sans-serif;"></div>
-                                <button class="site-btn" id="btn__enviar" onclick="enviarMensaje()">Enviar</button>
+                                <button class="site-btn" id="btn__enviar" onclick="enviarMensaje()" data-key="enviar">Enviar</button>
                                 </form>
                             </div>
                         </div>
