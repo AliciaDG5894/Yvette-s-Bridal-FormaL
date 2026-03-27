@@ -53,7 +53,7 @@
             <button id="acc-toggle" onclick="toggleAccWidget()" title="Accesibilidad" aria-label="Abrir herramientas de accesibilidad">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                     <circle cx="12" cy="4" r="2"/>
-                    <path d="M6.5 10.5l-1.41 1.41L7 14H4v2h3l-1.91 1.91L6.5 19.32 10 15.83V21h2v-5.17l3.5 3.49 1.41-1.41L14 15h3v-2h-3l1.91-1.91L14.5 9.68 11 13.17V9h-2v4.17L6.5 10.5z"/>
+                    
                 </svg>
             </button>
             <div id="acc-panel" style="display:none;" role="menu">
