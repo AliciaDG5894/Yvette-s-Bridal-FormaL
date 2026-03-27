@@ -269,7 +269,7 @@ en: {
     productoNuevoDesc: "Newly added product. Available in all sizes. Check store availability.",
     inicio: "Home",
     ropa: "Shop",
-    carrito: "Cart",
+    carrito: "Car",
     nosotros: "About",
     contacto: "Contact",
     nuevosProductos: "New Products",
