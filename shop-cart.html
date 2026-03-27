@@ -35,7 +35,7 @@
         </ul>
         <div class="offcanvas__logo"><a href="./index.html"><img src="img/log1.png" alt=""></a></div>
         <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__auth"><a href="login.html" data-key="sesion">Iniciar Sesión</a></div>
+        <div class="offcanvas__auth"><a href="login.html" data-key="iniciarSesion">Iniciar Sesión</a></div>
     </div>
 
     <header class="header">
@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="header__right">
-                        <div class="header__right__auth"><a href="login.html" data-key="sesion">Iniciar Sesión</a></div>
+                        <div class="header__right__auth"><a href="login.html" data-key="inicio">Iniciar Sesión</a></div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
                             <li><a href="shop-cart.html"><span class="icon_bag_alt"></span></a></li>
@@ -65,10 +65,6 @@
         </div>
     </header>
 
-        <!-- TRADUCCIÓN -->
-    <button onclick="changeLang('es')">ES</button>
-    <button onclick="changeLang('en')">EN</button>
-    
     <div class="breadcrumb-option"><div class="container"><div class="row"><div class="col-lg-12">
         <div class="breadcrumb__links"><a href="./index.html"><i class="fa fa-home"></i ata-key="inicio">Inicio</a><span data-key="carrito">Carrito</span></div>
     </div></div></div></div>
@@ -138,7 +134,7 @@
         async function cargarCarrito(session) {
             const c = document.getElementById('carrito__contenido')
             if (!session) {
-                c.innerHTML = `<div class="cart__empty"><i class="icon_bag_alt"></i><p>${t.iniciaSesionCarrito}</p><a href="login.html" class="primary-btn">${t.session}</a></div>`;
+                    c.innerHTML = `<div class="cart__empty"><i class="icon_bag_alt"></i><p>${t.iniciaSesionCarrito}</p><a href="login.html" class="primary-btn">${t.session}</a></div>`;
                 return
             }
             const { data:items } = await sb.from('carrito').select('*').eq('user_id',session.user.id).order('created_at')
@@ -218,5 +214,6 @@
     <script src="js/jquery.nicescroll.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/features.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
