@@ -117,6 +117,9 @@
             document.getElementById('tabs__container').style.display='none'
             document.getElementById('login__form').style.display='none'
             document.getElementById('mfa__form').style.display='block'
+
+            aplicarTraduccion();
+
             document.querySelectorAll('.mfa__digit').forEach(i=>i.value='')
             document.getElementById('d1').focus(); noMsg()
         }
@@ -159,15 +162,15 @@
             if (error) { msg('Correo o contraseña incorrectos.','error'); btn('btn__login','Iniciar Sesión',false); return }
             usuarioSesion = data.user
             generarCodigo(); mostrarMFA()
-            msg('Ingresa el código que aparece arriba.','info')
+            msg(t.ingresaCodigoArriba,'info')
             btn('btn__login','Iniciar Sesión',false)
         }
 
         async function verificarMFA() {
             const ingresado = ['d1','d2','d3','d4','d5','d6'].map(id=>document.getElementById(id).value).join('')
-            if (ingresado.length<6) { msg('Ingresa los 6 dígitos.','error'); return }
-            if (ingresado!==codigoMFA) { msg('❌ Código incorrecto. Acceso denegado.','error'); return }
-            msg('✅ Acceso concedido. Redirigiendo...','success')
+            if (ingresado.length<6) { msg(t.ingresa6,'error'); return }
+            if (ingresado!==codigoMFA) { msg(t.codigoIncorrecto,'error'); return }
+            msg(t.accesoOK,'success')
             const { data: perfil } = await sb.from('usuarios').select('rol').eq('id',usuarioSesion.id).single()
             setTimeout(() => {
                 window.location.href = (perfil && perfil.rol==='admin') ? 'admin.html' : 'index.html'
