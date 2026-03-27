@@ -126,7 +126,6 @@ es: {
     subtotal: "Subtotal",
     total: "Total",
     procederPago: "Proceder al pago",
-    productos: "Productos",
     precio: "Precio",
     cantidad: "Cantidad",
     eliminar: "Eliminar",
@@ -353,7 +352,6 @@ en: {
     subtotal: "Subtotal",
     total: "Total",
     procederPago: "Proceed to checkout",
-    productos: "Products",
     precio: "Price",
     cantidad: "Quantity",
     eliminar: "Remove",
@@ -461,7 +459,7 @@ en: {
 }
 };
 let lang = localStorage.getItem("lang") || "es";
-const t = translations[lang];
+let t = translations[lang];
 
 function changeLang(newLang){
     localStorage.setItem("lang", newLang);
@@ -469,6 +467,13 @@ function changeLang(newLang){
 }
 
 $(document).ready(function () {
+
+    if ($('title').data('key')) {
+    const key = $('title').data('key');
+    if (t[key]) {
+        document.title = t[key];
+    }
+    }
 
     $('[data-key]').each(function(){const key = $(this).data('key');
         if(t[key]){
