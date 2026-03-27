@@ -166,14 +166,10 @@ function changeLang(newLang){
 
 $(document).ready(function () {
 
-        setTimeout(() => {
-        $('[data-key]').each(function(){
-            const key = $(this).data('key');
-            if(t[key]){
-                $(this).text(t[key]);
-            }
-        });
-    }, 100);
+        document.querySelectorAll("[data-key]").forEach(el => {
+    const key = el.getAttribute("data-key");
+    el.textContent = translations[lang][key];
+});
 
     $('[data-key]').each(function(){const key = $(this).data('key');
         if(t[key]){
