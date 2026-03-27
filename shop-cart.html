@@ -66,7 +66,7 @@
     </header>
 
     <div class="breadcrumb-option"><div class="container"><div class="row"><div class="col-lg-12">
-        <div class="breadcrumb__links"><a href="./index.html"><i class="fa fa-home"></i ata-key="inicio">Inicio</a><span data-key="carrito">Carrito</span></div>
+        <div class="breadcrumb__links"><a href="./index.html"><i class="fa fa-home"></i data-key="inicio">Inicio</a><span data-key="carrito">Carrito</span></div>
     </div></div></div></div>
 
     <section class="shop-cart spad">
@@ -95,7 +95,7 @@
             </div>
         </div></div>
         <div class="col-lg-2 col-md-3"><div class="footer__widget"><h6 data-key="enlacesRapidos">Enlaces rápidos</h6><ul><li><a href="Nosotros.html" data-key="nosotros">Nosotros</a></li><li><a href="contact.html" data-key="contacto">Contacto</a></li></ul></div></div>
-        <div class="col-lg-2 col-md-3"><div class="footer__widget"><h6 ata-key="cuentas">Cuentas</h6><ul><li><a href="#" data-key="miCuenta">Mi cuenta</a></li><li><a href="#" data-key="pedidos">Pedidos</a></li></ul></div></div>
+        <div class="col-lg-2 col-md-3"><div class="footer__widget"><h6 data-key="cuentas">Cuentas</h6><ul><li><a href="#" data-key="miCuenta">Mi cuenta</a></li><li><a href="#" data-key="pedidos">Pedidos</a></li></ul></div></div>
         <div class="col-lg-4 col-md-8"><div class="footer__newslatter"><h6 data-key="boletin">Boletin Informativo</h6>
             <form action="#"><input type="text" placeholder="Email"><button type="submit" class="site-btn" data-key="suscribete">Subscribete</button></form>
             <div class="footer__social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
@@ -139,7 +139,7 @@
             }
             const { data:items } = await sb.from('carrito').select('*').eq('user_id',session.user.id).order('created_at')
             if (!items||items.length===0) {
-                c.innerHTML=`<div class="cart__empty"><i class="icon_bag_alt"></i><p>Tu carrito está vacío.</p><a href="shop.html" class="primary-btn">Ver productos</a></div>`
+                c.innerHTML=`<div class="cart__empty"><i class="icon_bag_alt"></i><p data-key="carritoVacio">Tu carrito está vacío.</p><a href="shop.html" data-key="verProductos" class="primary-btn">Ver productos</a></div>`
                 return
             }
             const total = items.reduce((s,i)=>s+(i.precio*i.cantidad),0)
