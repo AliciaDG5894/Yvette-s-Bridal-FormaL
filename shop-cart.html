@@ -172,17 +172,17 @@
                 </div></div>
                 <div class="row" style="margin-top:20px;">
                     <div class="col-lg-6 col-md-6"><div class="cart__btn"><a href="shop.html">${t.continuarComprando}</a></div></div>
-                    <div class="col-lg-6 col-md-6"><div class="cart__btn update__btn"><a href="#" onclick="vaciarCarrito()" style="color:#ca1515;"><span class="icon_close"></span> Vaciar carrito</a></div></div>
+                    <div class="col-lg-6 col-md-6"><div class="cart__btn update__btn"><a href="#" onclick="vaciarCarrito()" style="color:#ca1515;"><span class="icon_close"></span>${t.vaciarCarrito}</a></div></div>
                 </div>
                 <div class="row" style="margin-top:20px;">
                     <div class="col-lg-4 offset-lg-8">
                         <div class="cart__total__procced">
-                            <h6>Carrito total</h6>
+                            <h6 data-key="carritoTotal">Carrito total</h6>
                             <ul>
                                 <li>Subtotal <span>$ ${total.toFixed(2)}</span></li>
                                 <li>Total <span style="font-weight:800;color:#ca1515;">$ ${total.toFixed(2)}</span></li>
                             </ul>
-                            <a href="#" class="primary-btn">Proceder al pago</a>
+                            <a href="#" class="primary-btn" data-key="procederPago">Proceder al pago</a>
                         </div>
                     </div>
                 </div>`
