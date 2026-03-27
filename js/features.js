@@ -36,7 +36,14 @@ es: {
     meGusta: "Me gusta",
     agregadoFav: "añadido a favoritos",
     quitadoFav: "quitado de favoritos",
-    productoNuevoDesc: "Producto recién agregado. Disponible en todas las tallas. Consulta disponibilidad en tienda."
+    productoNuevoDesc: "Producto recién agregado. Disponible en todas las tallas. Consulta disponibilidad en tienda.",
+    inicio: "Inicio",
+    ropa: "Ropa",
+    carrito: "Carrito",
+    nosotros: "Nosotros",
+    contacto: "Contáctanos",
+    nuevosProductos: "Nuevos Productos",
+    descripcionHero: "Descubre nuestra exclusiva selección de vestidos diseñados para hacer inolvidable tu día especial."
 },
 en: {
     nuevo: "New",
@@ -71,7 +78,14 @@ en: {
     meGusta: "Like",
     agregadoFav: "added to favorites",
     quitadoFav: "removed from favorites",
-    productoNuevoDesc: "Newly added product. Available in all sizes. Check store availability."
+    productoNuevoDesc: "Newly added product. Available in all sizes. Check store availability.",
+    inicio: "Home",
+    ropa: "Shop",
+    carrito: "Cart",
+    nosotros: "About",
+    contacto: "Contact",
+    nuevosProductos: "New Products",
+    descripcionHero: "Discover our exclusive selection of dresses designed to make your special day unforgettable."
 }
 };
 let lang = localStorage.getItem("lang") || "es";
@@ -83,6 +97,12 @@ function changeLang(newLang){
 }
 
 $(document).ready(function () {
+
+    $('[data-key]').each(function(){const key = $(this).data('key');
+        if(t[key]){
+            $(this).text(t[key]);
+        }
+    });
 
     let savedProducts = JSON.parse(localStorage.getItem("products")) || [];
 
@@ -223,7 +243,7 @@ $(document).ready(function () {
                 </select>
                 <span class="error-msg" id="err-cat"></span>
                 <input type="text" id="new-product-img" placeholder="${t.urlImagen}" />
-                <button class="btn-submit-product">'t.agregarProducto'</button>
+                <button class="btn-add-product">${t.agregarProducto}</button>
             </div>
         </div>`;
         $('body').append(modalHTML);
