@@ -271,7 +271,7 @@ en: {
     sesion:"Login",
     iniciaSesionCarrito: "Log in to view your cart.",
     ropa: "Shop",
-    carrito: "Car",
+    carrito: "Cart",
     nosotros: "About",
     contacto: "Contact",
     nuevosProductos: "New Products",
