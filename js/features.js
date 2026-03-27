@@ -95,7 +95,7 @@ $(document).ready(function () {
     if (darkMode) {
         $('body').addClass('dark-mode');
         $('#dm-icon').text('☀️');
-        $('#dm-label').text('Modo Claro');
+        $('#dm-label').text('t.modoClaro');
     }
 
     $('#dark-mode-btn').on('click', function () {
@@ -104,7 +104,7 @@ $(document).ready(function () {
         localStorage.setItem('darkMode', darkMode);
         if (darkMode) {
             $('#dm-icon').text('☀️');
-            $('#dm-label').text('Modo Claro');
+            $('#dm-label').text('t.modoClaro');
         } else {
             $('#dm-icon').text('🌙');
             $('#dm-label').text(t.modoOscuro);
@@ -139,7 +139,7 @@ $(document).ready(function () {
         var $desc = $(this).prev('.product__desc');
         if ($desc.is(':visible')) {
             $desc.slideUp(200);
-            $(this).text('Ver descripción ▾');
+            $(this).text('t.verDescripcion ▾');
         } else {
             $desc.slideDown(200);
             $(this).text('Ocultar ▴');
@@ -270,7 +270,7 @@ $(document).ready(function () {
 
             // Añadir descripción al nuevo producto
             var $newDesc = $('<p class="product__desc">Producto recién agregado. Disponible en todas las tallas. Consulta disponibilidad en tienda.</p>');
-            var $newBtn = $('<button class="btn-mostrar-mas">Ver descripción ▾</button>');
+            var $newBtn = $('<button class="btn-mostrar-mas">t.verDescripcion ▾</button>');
             $newProduct.find('.product__item__text').append($newDesc).append($newBtn);
 
             $newProduct.slideDown(400);
