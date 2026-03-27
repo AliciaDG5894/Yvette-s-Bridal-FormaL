@@ -472,6 +472,12 @@ $(document).ready(function () {
             $(this).text(t[key]);
         }
     });
+    $('[data-key-placeholder]').each(function(){
+    const key = $(this).data('key-placeholder');
+    if(t[key]){
+        $(this).attr('placeholder', t[key]);
+    }
+    });
 
     let savedProducts = JSON.parse(localStorage.getItem("products")) || [];
 
