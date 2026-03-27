@@ -35,7 +35,7 @@
         </ul>
         <div class="offcanvas__logo"><a href="./index.html"><img src="img/log1.png" alt=""></a></div>
         <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__auth"><a href="login.html">Iniciar Sesión</a></div>
+        <div class="offcanvas__auth"><a href="login.html" data-key="iniciarSesion">Iniciar Sesión</a></div>
     </div>
 
     <header class="header">
@@ -44,16 +44,16 @@
                 <div class="col-xl-3 col-lg-2"><div class="header__logo"><a href="./index.html"><img src="img/log1.png" alt=""></a></div></div>
                 <div class="col-xl-6 col-lg-7">
                     <nav class="header__menu"><ul>
-                        <li><a href="./index.html">Inicio</a></li>
-                        <li><a href="./shop.html">Ropa</a></li>
-                        <li class="active"><a href="./shop-cart.html">Carrito</a></li>
-                        <li><a href="./Nosotros.html">Nosotros</a></li>
-                        <li><a href="./contact.html">Contactanos</a></li>
+                        <li><a href="./index.html" data-key="inicio">Inicio</a></li>
+                        <li><a href="./shop.html" data-key="ropa">Ropa</a></li>
+                        <li class="active"><a href="./shop-cart.html" data-key="carrito">Carrito</a></li>
+                        <li><a href="./Nosotros.html" data-key="nosotros">Nosotros</a></li>
+                        <li><a href="./contact.html" data-key="contacto">Contáctanos</a></li>
                     </ul></nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="header__right">
-                        <div class="header__right__auth"><a href="login.html">Iniciar Sesión</a></div>
+                        <div class="header__right__auth"><a href="login.html" data-key="inicio" >Iniciar Sesión</a></div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
                             <li><a href="shop-cart.html"><span class="icon_bag_alt"></span></a></li>
@@ -66,12 +66,12 @@
     </header>
 
     <div class="breadcrumb-option"><div class="container"><div class="row"><div class="col-lg-12">
-        <div class="breadcrumb__links"><a href="./index.html"><i class="fa fa-home"></i> Inicio</a><span>Carrito</span></div>
+        <div class="breadcrumb__links"><a href="./index.html"><i class="fa fa-home"></i ata-key="inicio">Inicio</a><span data-key="carrito">Carrito</span></div>
     </div></div></div></div>
 
     <section class="shop-cart spad">
         <div class="container" id="carrito__contenido">
-            <div style="text-align:center;padding:40px;color:#aaa;">Cargando carrito...</div>
+            <div style="text-align:center;padding:40px;color:#aaa;" data-key="cargandoCarrito">Cargando carrito...</div>
         </div>
     </section>
 
@@ -87,22 +87,22 @@
     <footer class="footer"><div class="container"><div class="row">
         <div class="col-lg-4 col-md-6"><div class="footer__about">
             <div class="footer__logo"><a href="./index.html"><img src="img/log1.png" alt=""></a></div>
-            <p>Descubre nuestra exclusiva selección de vestidos diseñados para hacer inolvidable tu día especial.</p>
+            <p data-key="descripcionHero">Descubre nuestra exclusiva selección de vestidos diseñados para hacer inolvidable tu día especial.</p>
             <div class="footer__payment">
                 <a href="#"><img src="img/payment/payment-1.png" alt=""></a><a href="#"><img src="img/payment/payment-2.png" alt=""></a>
                 <a href="#"><img src="img/payment/payment-3.png" alt=""></a><a href="#"><img src="img/payment/payment-4.png" alt=""></a>
                 <a href="#"><img src="img/payment/payment-5.png" alt=""></a>
             </div>
         </div></div>
-        <div class="col-lg-2 col-md-3"><div class="footer__widget"><h6>Enlaces rápidos</h6><ul><li><a href="Nosotros.html">Nosotros</a></li><li><a href="contact.html">Contacto</a></li></ul></div></div>
-        <div class="col-lg-2 col-md-3"><div class="footer__widget"><h6>Cuentas</h6><ul><li><a href="#">Mi cuenta</a></li><li><a href="#">Pedidos</a></li></ul></div></div>
-        <div class="col-lg-4 col-md-8"><div class="footer__newslatter"><h6>Boletin Informativo</h6>
-            <form action="#"><input type="text" placeholder="Email"><button type="submit" class="site-btn">Subscribete</button></form>
+        <div class="col-lg-2 col-md-3"><div class="footer__widget"><h6 data-key="enlacesRapidos">Enlaces rápidos</h6><ul><li><a href="Nosotros.html" data-key="nosotros">Nosotros</a></li><li><a href="contact.html" data-key="contacto">Contacto</a></li></ul></div></div>
+        <div class="col-lg-2 col-md-3"><div class="footer__widget"><h6 ata-key="cuentas">Cuentas</h6><ul><li><a href="#" data-key="miCuenta">Mi cuenta</a></li><li><a href="#" data-key="pedidos">Pedidos</a></li></ul></div></div>
+        <div class="col-lg-4 col-md-8"><div class="footer__newslatter"><h6 data-key="boletin">Boletin Informativo</h6>
+            <form action="#"><input type="text" placeholder="Email"><button type="submit" class="site-btn" data-key="suscribete">Subscribete</button></form>
             <div class="footer__social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
         </div></div>
     </div></div></footer>
 
-    <div class="search-model"><div class="h-100 d-flex align-items-center justify-content-center"><div class="search-close-switch">+</div><form class="search-model-form"><input type="text" id="search-input" placeholder="Busca aquí....."></form></div></div>
+    <div class="search-model"><div class="h-100 d-flex align-items-center justify-content-center"><div class="search-close-switch">+</div><form class="search-model-form"><input type="text" id="search-input" data-key-placeholder="buscar" placeholder="Busca aquí....."></form></div></div>
 
     <script>
         const SUPABASE_URL='https://odlebtlesvinsfaokiiz.supabase.co'
@@ -214,7 +214,5 @@
     <script src="js/jquery.nicescroll.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/features.js"></script>
-    <script src="js/search.js"></script>
-    <script src="js/accessibility.js"></script>
 </body>
 </html>
