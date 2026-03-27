@@ -614,151 +614,151 @@ $(document).ready(function () {
     });
 
 
-    /* ============================================
-       3. BOTÓN AGREGAR PRODUCTO DINÁMICAMENTE
-       (Solo en index.html y shop.html)
-    ============================================ */
-    if ($('.property__gallery').length || $('.shop .row .col-lg-9').length) {
+    // /* ============================================
+    //    3. BOTÓN AGREGAR PRODUCTO DINÁMICAMENTE
+    //    (Solo en index.html y shop.html)
+    // ============================================ */
+    // if ($('.property__gallery').length || $('.shop .row .col-lg-9').length) {
 
-        var $addSection = $('<div class="add-product-section container"><button class="btn-add-product">'+t.agregarProducto+'</button></div>');
+    //     var $addSection = $('<div class="add-product-section container"><button class="btn-add-product">'+t.agregarProducto+'</button></div>');
 
-        if ($('.property__gallery').length) {
-            $('.product.spad').append($addSection);
-        } else {
-            $('.shop .col-lg-9').append($addSection);
-        }
+    //     if ($('.property__gallery').length) {
+    //         $('.product.spad').append($addSection);
+    //     } else {
+    //         $('.shop .col-lg-9').append($addSection);
+    //     }
 
-        var modalHTML = `
-        <div id="add-product-overlay">
-            <div class="add-product-modal">
-                <span class="modal-close">&times;</span>
-                <h4>${t.agregarProducto}</h4>
-                <input type="text" id="new-product-name" placeholder="${t.nombreProducto}" />
-                <span class="error-msg" id="err-name"></span>
-                <input type="text" id="new-product-price" placeholder="${t.precioPlaceholder}" />
-                <span class="error-msg" id="err-price"></span>
-                <select id="new-product-category">
-                    <option value="">${t.seleccionarCategoria}</option>
-                    <option value="women">${t.boda}</option>
-                    <option value="men">${t.prom}</option>
-                    <option value="kid">${t.esmoquin}</option>
-                    <option value="accessories">${t.accesorios}</option>
-                </select>
-                <span class="error-msg" id="err-cat"></span>
-                <input type="text" id="new-product-img" placeholder="${t.urlImagen}" />
-                <button class="btn-add-product">${t.agregarProducto}</button>
-            </div>
-        </div>`;
-        $('body').append(modalHTML);
+    //     var modalHTML = `
+    //     <div id="add-product-overlay">
+    //         <div class="add-product-modal">
+    //             <span class="modal-close">&times;</span>
+    //             <h4>${t.agregarProducto}</h4>
+    //             <input type="text" id="new-product-name" placeholder="${t.nombreProducto}" />
+    //             <span class="error-msg" id="err-name"></span>
+    //             <input type="text" id="new-product-price" placeholder="${t.precioPlaceholder}" />
+    //             <span class="error-msg" id="err-price"></span>
+    //             <select id="new-product-category">
+    //                 <option value="">${t.seleccionarCategoria}</option>
+    //                 <option value="women">${t.boda}</option>
+    //                 <option value="men">${t.prom}</option>
+    //                 <option value="kid">${t.esmoquin}</option>
+    //                 <option value="accessories">${t.accesorios}</option>
+    //             </select>
+    //             <span class="error-msg" id="err-cat"></span>
+    //             <input type="text" id="new-product-img" placeholder="${t.urlImagen}" />
+    //             <button class="btn-add-product">${t.agregarProducto}</button>
+    //         </div>
+    //     </div>`;
+    //     $('body').append(modalHTML);
 
-        $(document).on('click', '.btn-add-product', function () {
-            $('#add-product-overlay').addClass('active');
-        });
+    //     $(document).on('click', '.btn-add-product', function () {
+    //         $('#add-product-overlay').addClass('active');
+    //     });
 
-        $(document).on('click', '.modal-close, #add-product-overlay', function (e) {
-            if ($(e.target).is('#add-product-overlay') || $(e.target).is('.modal-close')) {
-                $('#add-product-overlay').removeClass('active');
-            }
-        });
+    //     $(document).on('click', '.modal-close, #add-product-overlay', function (e) {
+    //         if ($(e.target).is('#add-product-overlay') || $(e.target).is('.modal-close')) {
+    //             $('#add-product-overlay').removeClass('active');
+    //         }
+    //     });
 
-        $(document).on('click', '.btn-submit-product', function () {
-            var name = $('#new-product-name').val().trim();
-            var price = $('#new-product-price').val().trim();
-            var cat = $('#new-product-category').val();
-            var img = $('#new-product-img').val().trim() || 'img/product/V1.webp';
-            var valid = true;
+    //     $(document).on('click', '.btn-submit-product', function () {
+    //         var name = $('#new-product-name').val().trim();
+    //         var price = $('#new-product-price').val().trim();
+    //         var cat = $('#new-product-category').val();
+    //         var img = $('#new-product-img').val().trim() || 'img/product/V1.webp';
+    //         var valid = true;
 
-            $('#err-name, #err-price, #err-cat').text('');
-            $('#new-product-name, #new-product-price, #new-product-category').removeClass('field-error');
+    //         $('#err-name, #err-price, #err-cat').text('');
+    //         $('#new-product-name, #new-product-price, #new-product-category').removeClass('field-error');
 
-            if (!name) {
-                $('#err-name').text(t.errorNombre);
-                $('#new-product-name').addClass('field-error');
-                valid = false;
-            }
-            if (!price || isNaN(parseFloat(price))) {
-                $('#err-price').text(t.errorPrecio);
-                $('#new-product-price').addClass('field-error');
-                valid = false;
-            }
-            if (!cat) {
-                $('#err-cat').text(t.errorCategoria);
-                $('#new-product-category').addClass('field-error');
-                valid = false;
-            }
+    //         if (!name) {
+    //             $('#err-name').text(t.errorNombre);
+    //             $('#new-product-name').addClass('field-error');
+    //             valid = false;
+    //         }
+    //         if (!price || isNaN(parseFloat(price))) {
+    //             $('#err-price').text(t.errorPrecio);
+    //             $('#new-product-price').addClass('field-error');
+    //             valid = false;
+    //         }
+    //         if (!cat) {
+    //             $('#err-cat').text(t.errorCategoria);
+    //             $('#new-product-category').addClass('field-error');
+    //             valid = false;
+    //         }
 
-            if (!valid) return;
+    //         if (!valid) return;
 
-            // 
-            var priceFloat = parseFloat(price).toFixed(1);
+    //         // 
+    //         var priceFloat = parseFloat(price).toFixed(1);
 
-            let savedProducts = JSON.parse(localStorage.getItem("products")) || [];
+    //         let savedProducts = JSON.parse(localStorage.getItem("products")) || [];
 
-            savedProducts.push({
-                name: name,
-                price: priceFloat,
-                cat: cat,
-                img: img
-            });
+    //         savedProducts.push({
+    //             name: name,
+    //             price: priceFloat,
+    //             cat: cat,
+    //             img: img
+    //         });
 
-            localStorage.setItem("products", JSON.stringify(savedProducts));
-            // 
+    //         localStorage.setItem("products", JSON.stringify(savedProducts));
+    //         // 
 
-            var newProductHTML = `
-            <div class="col-lg-3 col-md-4 col-sm-6 mix ${cat} shop-product-col" style="display:none">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="${img}" style="background-image:url('${img}')">
-                        <div class="label new">Nuevo</div>
-                        <ul class="product__hover">
-                            <li><a href="${img}" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">${name}</a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i><i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i><i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">$ ${priceFloat}</div>
-                    </div>
-                </div>
-            </div>`;
+    //         var newProductHTML = `
+    //         <div class="col-lg-3 col-md-4 col-sm-6 mix ${cat} shop-product-col" style="display:none">
+    //             <div class="product__item">
+    //                 <div class="product__item__pic set-bg" data-setbg="${img}" style="background-image:url('${img}')">
+    //                     <div class="label new">Nuevo</div>
+    //                     <ul class="product__hover">
+    //                         <li><a href="${img}" class="image-popup"><span class="arrow_expand"></span></a></li>
+    //                         <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+    //                         <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+    //                     </ul>
+    //                 </div>
+    //                 <div class="product__item__text">
+    //                     <h6><a href="#">${name}</a></h6>
+    //                     <div class="rating">
+    //                         <i class="fa fa-star"></i><i class="fa fa-star"></i>
+    //                         <i class="fa fa-star"></i><i class="fa fa-star"></i>
+    //                         <i class="fa fa-star"></i>
+    //                     </div>
+    //                     <div class="product__price">$ ${priceFloat}</div>
+    //                 </div>
+    //             </div>
+    //         </div>`;
 
-            var $newProduct = $(newProductHTML);
+    //         var $newProduct = $(newProductHTML);
 
-            if ($('.property__gallery').length) {
-                $('.property__gallery').append($newProduct);
-            } else {
-                $('.shop .col-lg-9 .row').prepend($newProduct);
-            }
+    //         if ($('.property__gallery').length) {
+    //             $('.property__gallery').append($newProduct);
+    //         } else {
+    //             $('.shop .col-lg-9 .row').prepend($newProduct);
+    //         }
 
-            // Añadir descripción al nuevo producto
-            var $newDesc = $('<p class="product__desc">'+t.productoNuevoDesc+'</p>');
-            var $newBtn = $('<button class="btn-mostrar-mas">'+t.verDescripcion+'</button>');
-            $newProduct.find('.product__item__text').append($newDesc).append($newBtn);
+    //         // Añadir descripción al nuevo producto
+    //         var $newDesc = $('<p class="product__desc">'+t.productoNuevoDesc+'</p>');
+    //         var $newBtn = $('<button class="btn-mostrar-mas">'+t.verDescripcion+'</button>');
+    //         $newProduct.find('.product__item__text').append($newDesc).append($newBtn);
 
-            $newProduct.slideDown(400);
+    //         $newProduct.slideDown(400);
 
-            $newProduct.find('.set-bg').each(function () {
-                var bg = $(this).data('setbg');
-                $(this).css('background-image', 'url(' + bg + ')');
-            });
+    //         $newProduct.find('.set-bg').each(function () {
+    //             var bg = $(this).data('setbg');
+    //             $(this).css('background-image', 'url(' + bg + ')');
+    //         });
 
-            // Reiniciar Magnific Popup si está disponible
-            try {
-                $newProduct.find('.image-popup').magnificPopup({ type: 'image' });
-            } catch (e) {}
+    //         // Reiniciar Magnific Popup si está disponible
+    //         try {
+    //             $newProduct.find('.image-popup').magnificPopup({ type: 'image' });
+    //         } catch (e) {}
 
-            $('#add-product-overlay').removeClass('active');
-            $('#new-product-name').val('');
-            $('#new-product-price').val('');
-            $('#new-product-category').val('');
-            $('#new-product-img').val('');
-        });
-    }
+    //         $('#add-product-overlay').removeClass('active');
+    //         $('#new-product-name').val('');
+    //         $('#new-product-price').val('');
+    //         $('#new-product-category').val('');
+    //         $('#new-product-img').val('');
+    //     });
+    // }
 
     // BTN PARA ELIMINAR 
     $(document).on('click', '.delete-product', function (e) {
