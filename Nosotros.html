@@ -49,7 +49,7 @@
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__auth">
-            <a href="login.html">Iniciar Sesion</a>
+            <a href="login.html" data-key="iniciarSesion">Iniciar Sesion</a>
         </div>
     </div>
     <!-- Offcanvas Menu End -->
@@ -66,18 +66,18 @@
                 <div class="col-xl-6 col-lg-7">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="./index.html">Inicio</a></li>
-                            <li><a href="./shop.html">Ropa</a></li>
-                            <li><a href="./shop-cart.html">Carrito</a></li>
-                            <li class="active"><a href="./Nosotros.html">Nosotros</a></li>
-                            <li><a href="./contact.html">Contactanos</a></li>
+                            <li><a href="./index.html" data-key="inicio">Inicio</a></li>
+                            <li><a href="./shop.html" data-key="ropa">Ropa</a></li>
+                            <li><a href="./shop-cart.html" data-key="carrito">Carrito</a></li>
+                            <li class="active"><a href="./Nosotros.html" data-key="nosotros">Nosotros</a></li>
+                            <li><a href="./contact.html" data-key="contacto">Contactanos</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="header__right">
                         <div class="header__right__auth">
-                            <a href="login.html">Iniciar Sesion</a>
+                            <a href="login.html"  data-key="iniciarSesion">Iniciar Sesion</a>
                         </div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
@@ -99,8 +99,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="./index.html"><i class="fa fa-home"></i> Inicio</a>
-                        <span>Nosotros</span>
+                        <a href="./index.html"><i class="fa fa-home" data-key="inicio"></i> Inicio</a>
+                        <span data-key="nosotros">Nosotros</span>
                     </div>
                 </div>
             </div>
@@ -113,8 +113,8 @@
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-12 text-center">
-                    <h1 class="section-title" style="font-size: 100px;">Conócenos</h1>
-                    <p class="section-subtitle">
+                    <h1 class="section-title" style="font-size: 100px;" data-key="conocenos">Conócenos</h1>
+                    <p class="section-subtitle" data-key="subtituloNosotros">
                         Más que una boutique, somos parte de tus momentos más importantes.
                     </p>
                 </div>
@@ -125,9 +125,9 @@
                 <div class="col-lg-6">
                     <!-- <h3 class="section-subtitle">Nuestra Historia</h3> -->
                     <div class="mv__card mv__card--mision">
-                        <div class="mv__card__label">Nuestra Historia</div>
-                        <h3>Lo que somos</h3>
-                        <p>
+                        <div class="mv__card__label" data-key="nuestraHistoria">Nuestra Historia</div>
+                        <h3 data-key="loQueSomos">Lo que somos</h3>
+                        <p data-key="textoHistoria">
                             Yvette's Bridal Formal nace con el propósito de ofrecer vestidos
                             exclusivos para momentos inolvidables. Desde nuestros inicios,
                             nos hemos enfocado en brindar una atención personalizada y
@@ -172,9 +172,9 @@
                         <!-- <div class="mv__card__icon">
                             <i class="fa fa-heart"></i>
                         </div> -->
-                        <div class="mv__card__label">Nuestra Misión</div>
-                        <h3>Lo que hacemos</h3>
-                        <p>
+                        <div class="mv__card__label" data-key="nuestraMision">Nuestra Misión</div>
+                        <h3 data-key="loQueHacemos">Lo que hacemos</h3>
+                        <p data-key="textoMision">
                             Crear experiencias únicas a través de vestidos que hagan sentir
                             seguras, elegantes y especiales a nuestras clientas en cada evento.
                             Ofrecemos atención personalizada y diseños exclusivos que reflejan
@@ -188,9 +188,9 @@
                         <!-- <div class="mv__card__icon">
                             <i class="fa fa-eye"></i>
                         </div> -->
-                        <div class="mv__card__label">Nuestra Visión</div>
-                        <h3>A dónde vamos</h3>
-                        <p>
+                        <div class="mv__card__label" data-key="nuestraVision">Nuestra Visión</div>
+                        <h3 data-key="aDondeVamos">A dónde vamos</h3>
+                        <p data-key="textoVision">
                             Ser la boutique de referencia en moda formal y nupcial a nivel regional,
                             reconocida por la calidad de nuestros diseños, la calidez de nuestra
                             atención y nuestra capacidad de adaptarnos a las tendencias globales
@@ -206,8 +206,8 @@
     <section class="foda__section">
         <div class="container">
             <div class="section__title">
-                <h2>Análisis FODA</h2>
-                <p>Un vistazo honesto a nuestra posición estratégica</p>
+                <h2 data-key="analisisFoda">Análisis FODA</h2>
+                <p data-key="descripcionFoda">Un vistazo honesto a nuestra posición estratégica</p>
             </div>
             <div class="foda__grid">
 
@@ -217,16 +217,16 @@
                     <div class="foda__card__header">
                         <div class="foda__card__letter">F</div>
                         <div>
-                            <div class="foda__card__title">Fortalezas</div>
+                            <div class="foda__card__title" data-key="fortalezas">Fortalezas</div>
                             <div class="foda__card__subtitle">Strengths</div>
                         </div>
                     </div>
                     <ul class="foda__list">
-                        <li>Atención personalizada y cercana a cada clienta</li>
-                        <li>Amplio catálogo de vestidos formales y nupciales exclusivos</li>
-                        <li>Experiencia y conocimiento del mercado de moda formal</li>
-                        <li>Fuerte presencia en redes sociales e imagen de marca</li>
-                        <li>Ubicación estratégica accesible para el público objetivo</li>
+                        <li data-key="f1">Atención personalizada y cercana a cada clienta</li>
+                        <li data-key="f2">Amplio catálogo de vestidos formales y nupciales exclusivos</li>
+                        <li data-key="f3">Experiencia y conocimiento del mercado de moda formal</li>
+                        <li data-key="f4">Fuerte presencia en redes sociales e imagen de marca</li>
+                        <li data-key="f5">Ubicación estratégica accesible para el público objetivo</li>
                     </ul>
                 </div>
 
@@ -236,16 +236,15 @@
                     <div class="foda__card__header">
                         <div class="foda__card__letter">O</div>
                         <div>
-                            <div class="foda__card__title">Oportunidades</div>
-                            <div class="foda__card__subtitle">Opportunities</div>
+                            <div class="foda__card__title" data-key="oportunidades">Oportunidades</div>
                         </div>
                     </div>
                     <ul class="foda__list">
-                        <li>Crecimiento del comercio electrónico en moda femenina</li>
-                        <li>Alta demanda de vestidos para bodas, quince años y graduaciones</li>
-                        <li>Posibilidad de expandir ventas a otras ciudades vía e-commerce</li>
-                        <li>Alianzas con fotógrafos, organizadores de eventos y salones</li>
-                        <li>Tendencia al alza en personalización y diseño a medida</li>
+                        <li data-key="o1">Crecimiento del comercio electrónico en moda femenina</li>
+                        <li data-key="o2">Alta demanda de vestidos para bodas, quince años y graduaciones</li>
+                        <li data-key="o3">Posibilidad de expandir ventas a otras ciudades vía e-commerce</li>
+                        <li data-key="o4">Alianzas con fotógrafos, organizadores de eventos y salones</li>
+                        <li data-key="o5">Tendencia al alza en personalización y diseño a medida</li>
                     </ul>
                 </div>
 
@@ -255,16 +254,15 @@
                     <div class="foda__card__header">
                         <div class="foda__card__letter">D</div>
                         <div>
-                            <div class="foda__card__title">Debilidades</div>
-                            <div class="foda__card__subtitle">Weaknesses</div>
+                            <div class="foda__card__title" data-key="debilidades">Debilidades</div>
                         </div>
                     </div>
                     <ul class="foda__list">
-                        <li>Capacidad de inventario limitada en temporadas de alta demanda</li>
-                        <li>Dependencia de proveedores externos para ciertos diseños</li>
-                        <li>Presencia digital en etapa de desarrollo y crecimiento</li>
-                        <li>Proceso de ventas aún mayormente presencial</li>
-                        <li>Recursos limitados para campañas de publicidad masiva</li>
+                        <li data-key="d1">Capacidad de inventario limitada en temporadas de alta demanda</li>
+                        <li data-key="d2">Dependencia de proveedores externos para ciertos diseños</li>
+                        <li data-key="d3">Presencia digital en etapa de desarrollo y crecimiento</li>
+                        <li data-key="d4">Proceso de ventas aún mayormente presencial</li>
+                        <li data-key="d5">Recursos limitados para campañas de publicidad masiva</li>
                     </ul>
                 </div>
 
@@ -274,16 +272,15 @@
                     <div class="foda__card__header">
                         <div class="foda__card__letter">A</div>
                         <div>
-                            <div class="foda__card__title">Amenazas</div>
-                            <div class="foda__card__subtitle">Threats</div>
+                            <div class="foda__card__title" data-key="amenazas">Amenazas</div>
                         </div>
                     </div>
                     <ul class="foda__list">
-                        <li>Competencia de tiendas en línea con precios más bajos</li>
-                        <li>Fluctuaciones económicas que afectan el poder adquisitivo</li>
-                        <li>Cambios rápidos en tendencias de moda y preferencias</li>
-                        <li>Entrada de nuevas boutiques al mercado local</li>
-                        <li>Incremento en costos de materiales e importación de telas</li>
+                        <li data-key="amenaza1">Competencia de tiendas en línea con precios más bajos</li>
+                        <li data-key="amenaza2">Fluctuaciones económicas que afectan el poder adquisitivo</li>
+                        <li data-key="amenaza3">Cambios rápidos en tendencias de moda y preferencias</li>
+                        <li data-key="amenaza4">Entrada de nuevas boutiques al mercado local</li>
+                        <li data-key="amenaza5">Incremento en costos de materiales e importación de telas</li>
                     </ul>
                 </div>
 
@@ -339,7 +336,7 @@
                         <div class="footer__logo">
                             <a href="./index.html"><img src="img/log1.png" alt=""></a>
                         </div>
-                        <p>Descubre nuestra exclusiva selección de vestidos diseñados para hacer inolvidable tu día especial.</p>
+                        <p data-key="descripcionHero">Descubre nuestra exclusiva selección de vestidos diseñados para hacer inolvidable tu día especial.</p>
                         <div class="footer__payment">
                             <a href="#"><img src="img/payment/payment-1.png" alt=""></a>
                             <a href="#"><img src="img/payment/payment-2.png" alt=""></a>
@@ -351,32 +348,32 @@
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-5">
                     <div class="footer__widget">
-                        <h6>Enlaces rápidos</h6>
+                        <h6 data-key="enlacesRapidos">Enlaces rápidos</h6>
                         <ul>
-                            <li><a href="#">Nosotros</a></li>
-                            <li><a href="#">Blogs</a></li>
-                            <li><a href="#">Contacto</a></li>
-                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#" data-key="nosotros">Nosotros</a></li>
+                            <li><a href="#" data-key="blogs">Blogs</a></li>
+                            <li><a href="#" data-key="contacto">Contacto</a></li>
+                            <li><a href="#" data-key="faq">FAQ</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4">
                     <div class="footer__widget">
-                        <h6>Cuentas</h6>
+                        <h6 data-key="cuentas">Cuentas</h6>
                         <ul>
-                            <li><a href="#">Mi cuenta</a></li>
-                            <li><a href="#">Pedidos</a></li>
-                            <li><a href="#">Compras</a></li>
-                            <li><a href="#">Lista de deseos</a></li>
+                            <li><a href="#" data-key="miCuenta">Mi cuenta</a></li>
+                            <li><a href="#" data-key="pedidos">Pedidos</a></li>
+                            <li><a href="#" data-key="compras">Compras</a></li>
+                            <li><a href="#" data-key="listaDeseos">Lista de deseos</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-8 col-sm-8">
                     <div class="footer__newslatter">
-                        <h6>Boletin Informativo</h6>
+                        <<h6 data-key="boletin">Boletin Informativo</h6>
                         <form action="#">
                             <input type="text" placeholder="Email">
-                            <button type="submit" class="site-btn">Subscribete</button>
+                            <button data-key="suscribete">Subscribete</button>
                         </form>
                         <div class="footer__social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -397,7 +394,7 @@
         <div class="h-100 d-flex align-items-center justify-content-center">
             <div class="search-close-switch">+</div>
             <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Busca aquí.....">
+                <input type="text" id="search-input" data-key="buscar" placeholder="Busca aquí.....">
             </form>
         </div>
     </div>
@@ -415,8 +412,6 @@
     <script src="js/jquery.nicescroll.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/features.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/search.js"></script>
-    <script src="js/accessibility.js"></script>
+<script src="js/auth.js"></script>
 </body>
 </html>
