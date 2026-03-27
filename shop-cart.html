@@ -177,12 +177,12 @@
                 <div class="row" style="margin-top:20px;">
                     <div class="col-lg-4 offset-lg-8">
                         <div class="cart__total__procced">
-                            <h6 data-key="carritoTotal">Carrito total</h6>
+                            <h6>${t.carritoTotal}</h6>
                             <ul>
-                                <li>Subtotal <span>$ ${total.toFixed(2)}</span></li>
-                                <li>Total <span style="font-weight:800;color:#ca1515;">$ ${total.toFixed(2)}</span></li>
+                                <li>${t.subtotal} <span>$ ${total.toFixed(2)}</span></li>
+                                <li>${t.total} <span style="font-weight:800;color:#ca1515;">$ ${total.toFixed(2)}</span></li>
                             </ul>
-                            <a href="#" class="primary-btn" data-key="procederPago">Proceder al pago</a>
+                            <a href="#" class="primary-btn">${t.procederPago}</a>
                         </div>
                     </div>
                 </div>`
