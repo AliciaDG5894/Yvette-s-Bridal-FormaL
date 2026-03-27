@@ -31,13 +31,16 @@
 /* Template default CSS
 /*----------------------------------------*/
 
-/* Ocultar barra de Google */
-.goog-te-banner-frame {
+body {
+    top: 0px !important;
+}
+
+.skiptranslate iframe {
     display: none !important;
 }
 
-body {
-    top: 0px !important;
+.skiptranslate {
+    display: none !important;
 }
 
 html {
@@ -46,6 +49,46 @@ html {
 	height: 100%;
 	font-family: "Montserrat", sans-serif;
 	-webkit-font-smoothing: antialiased;
+}
+
+/* ===============================
+   SWITCH DE IDIOMA - ESTILO ELEGANTE
+================================= */
+
+.lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    display: flex;
+    gap: 8px;
+}
+
+.lang-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid #d4af37; /* dorado elegante */
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(6px);
+}
+
+/* Hover elegante */
+.lang-btn:hover {
+    background: #d4af37;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+/* Botón activo */
+.lang-btn.active {
+    background: #d4af37;
+    color: white;
 }
 
 h1,
