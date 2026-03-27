@@ -66,11 +66,11 @@
                 <div class="col-xl-6 col-lg-7">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.html">Inicio</a></li>
-                            <li><a href="./shop.html">Ropa</a></li>
-                            <li><a href="./shop-cart.html">Carrito</a></li>
-                            <li><a href="./Nosotros.html">Nosotros</a></li>
-                            <li><a href="./contact.html">Contactanos</a></li>
+                            <li class="active"><a href="./index.html" data-key="inicio">Inicio</a></li>
+                            <li><a href="./shop.html" data-key="ropa">Ropa</a></li>
+                            <li><a href="./shop-cart.html" data-key="carrito">Carrito</a></li>
+                            <li><a href="./Nosotros.html" data-key="nosotros">Nosotros</a></li>
+                            <li><a href="./contact.html" data-key="contacto">Contactanos</a></li>
                         </ul>
                         <!-- <button onclick="changeLang('es')">ES</button>
                         <button onclick="changeLang('en')">EN</button> -->
@@ -98,6 +98,8 @@
     <!-- TRADUCCIÓN -->
     <button onclick="changeLang('es')">ES</button>
     <button onclick="changeLang('en')">EN</button>
+
+    <script> </script>
 
     <!-- Categories Section Begin -->
     <section class="categories">
@@ -128,7 +130,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4">
                     <div class="section-title">
-                        <h4>Nuevos Productos</h4>
+                        <h4 data-key="nuevosProductos">Nuevos Productos</h4>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8">
@@ -748,7 +750,7 @@
                     <div class="footer__logo">
                         <a href="./index.html"><img src="img/log1.png" alt=""></a>
                     </div>
-                    <p>Descubre nuestra exclusiva selección de vestidos diseñados para hacer inolvidable tu día especial.</p>
+                    <p data-key="descripcionHero">Descubre nuestra exclusiva selección de vestidos diseñados para hacer inolvidable tu día especial.</p>
                     <div class="footer__payment">
                         <a href="#"><img src="img/payment/payment-1.png" alt=""></a>
                         <a href="#"><img src="img/payment/payment-2.png" alt=""></a>
@@ -825,12 +827,8 @@
 <script src="js/main.js"></script>
 <script src="js/features.js"></script>
 <script src="js/auth.js"></script>
-<script src="js/search.js"></script>
-<script src="js/accessibility.js"></script>
-<script src="js/search.js"></script>
-<script src="js/accessibility.js"></script>
 
-    <script>
+<script>
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
         pageLanguage: 'es'
