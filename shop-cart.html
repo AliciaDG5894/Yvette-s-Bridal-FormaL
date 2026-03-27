@@ -35,7 +35,7 @@
         </ul>
         <div class="offcanvas__logo"><a href="./index.html"><img src="img/log1.png" alt=""></a></div>
         <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__auth"><a href="login.html" data-key="iniciarSesion">Iniciar Sesión</a></div>
+        <div class="offcanvas__auth"><a href="login.html" data-key="sesion">Iniciar Sesión</a></div>
     </div>
 
     <header class="header">
@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="header__right">
-                        <div class="header__right__auth"><a href="login.html" data-key="inicio" >Iniciar Sesión</a></div>
+                        <div class="header__right__auth"><a href="login.html" data-key="sesion">Iniciar Sesión</a></div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
                             <li><a href="shop-cart.html"><span class="icon_bag_alt"></span></a></li>
@@ -138,7 +138,7 @@
         async function cargarCarrito(session) {
             const c = document.getElementById('carrito__contenido')
             if (!session) {
-                c.innerHTML=`<div class="cart__empty"><i class="icon_bag_alt"></i><p>Inicia sesión para ver tu carrito.</p><a href="login.html" class="primary-btn">Iniciar Sesión</a></div>`
+                c.innerHTML = `<div class="cart__empty"><i class="icon_bag_alt"></i><p>${t.iniciaSesionCarrito}</p><a href="login.html" class="primary-btn">${t.session}</a></div>`;
                 return
             }
             const { data:items } = await sb.from('carrito').select('*').eq('user_id',session.user.id).order('created_at')
