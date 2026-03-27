@@ -51,9 +51,9 @@
         widget.setAttribute('aria-label', 'Herramientas de accesibilidad');
         widget.innerHTML = `
             <button id="acc-toggle" onclick="toggleAccWidget()" title="Accesibilidad" aria-label="Abrir herramientas de accesibilidad">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="4" r="2"/>
-                    
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <text x="3" y="16" font-size="12" font-family="Arial" font-weight="bold">A</text>
+                  <path d="M18 10v2h-2v2h2v2h2v-2h2v-2h-2v-2h-2z"/>
                 </svg>
             </button>
             <div id="acc-panel" style="display:none;" role="menu">
