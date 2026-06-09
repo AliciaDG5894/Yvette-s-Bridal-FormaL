@@ -31,8 +31,10 @@
 /* Template default CSS
 /*----------------------------------------*/
 
-body {
-    top: 0px !important;
+/* Cambio para rama diseno */
+body{
+	top: 0px !important;
+    outline: 1px solid transparent;
 }
 
 .skiptranslate iframe {
