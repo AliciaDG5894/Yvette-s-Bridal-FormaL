@@ -33,4 +33,4 @@ Se utilizó un flujo basado en **Git Flow simplificado**:
 
 ## Repositorio
 
-[Enlace al repositorio público](https://github.com/TU_USUARIO/Yvettes-Bridal-Formal)
+https://sofiayalicia.onrender.com/login.html
