@@ -33,6 +33,7 @@
 
 body {
     top: 0px !important;
+	letter-spacing: 0.3px;
 }
 
 .skiptranslate iframe {
